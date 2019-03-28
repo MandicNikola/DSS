@@ -1,6 +1,6 @@
 # DSS
-Doctor support system
-Authors:
-Nikola Mandic
-Mirko Ivic
+Doctor support system <br/>
+Authors: <br/>
+Nikola Mandic <br/>
+Mirko Ivic <br/>
 Ivana Tomic
