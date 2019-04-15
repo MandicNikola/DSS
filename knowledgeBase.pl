@@ -158,15 +158,18 @@ treatment("Torsemide").
 treatment("Bosentan (Tracleer)").
 treatment("Loratadine (Claritin)").
 
-condition("Heart block", ["Sharp chest pain","Shortness of breath","Dizziness","Fainting","Weakness","Palpitations","Chest tightness","Peripheral edema","Decreased heart rate","Weight gain","Increased heart rate","Irregular heartbeat"]).
-condition("Heart attack", ["Sharp chest pain","Shortness of breath","Chest tightness","Nausea","Arm pain","Fainting","Sweating","Lower body pain","Heartburn","Irregular heartbeat","Burning chest pain","Increased heart rate"]).
-condition("Heart failure", ["Shortness of breath","Sharp chest pain","Difficulty breathing","Peripheral edema","Cough","Weakness","Chest tightness","Leg swelling","Weight gain","Fluid retention","Palpitations","Hurts to breath"]).
-condition("Heart contusion", ["Apnea","Sharp chest pain","Depression","Fainting","Itchy eyelid","Cross-eyed","Excessive growth","Elbow cramps or spasms","Wrist weakness","Elbow weakness","Hip stiffness or tightness","Nailbiting"]).
-condition("Increased heart rate", ["Shortness of breath","Sharp chest pain","Dizziness","Palpitations","Irregular heartbeat","Weakness","Chest tightness","Fainting","Abnormal involuntary movements","Hurts to breath","Mouth dryness","Pallor"]).
-condition("Decreased heart rate", ["Shortness of breath","Dizziness","Fainting","Ear pain","Sharp chest pain","Difficulty breathing","Weakness","Feeling ill","Chest tightness","Hurts to breath","Plugged feeling in ear","Irregular heartbeat"]).
-condition("Ischemic heart disease", ["Sharp chest pain","Shortness of breath","Difficulty breathing","Palpitations","Dizziness","Fatigue","Chest tightness","Peripheral edema","Lymphedema","Increased heart rate","Muscle pain","Throat feels tight"]).
-condition("Congenital heart defect", ["Sharp chest pain","Lack of growth","Lymphedema","Arm swelling","Infant feeding problem","Slurring words","Irregular belly button ","Cross-eyed","Neck cramps or spasms","Decreased heart rate","Excessive appetite","Hand or finger stiffness or tightness"]).
-condition("Hypertensive heart disease", ["Palpitations","Shortness of breath","Sharp chest pain","Difficulty breathing","Weakness","Fatigue","Chest tightness","Insomnia","Heartburn","Leg swelling","Fluid retention","Recent pregnancy"]).
+condition_symptoms("Heart block" ,"Sharp chest pain").
+condition_symptoms("Heart block" ,"Shortness of breath").
+condition_symptoms("Heart block" ,"Dizziness").
+condition_symptoms("Heart block" ,"Fainting").
+condition_symptoms("Heart block" ,"Weakness").
+condition_symptoms("Heart block" ,"Palpitations").
+condition_symptoms("Heart block" ,"Chest tightness").
+condition_symptoms("Heart block" ,"Peripheral edema").
+condition_symptoms("Heart block" ,"Decreased heart rate").
+condition_symptoms("Heart block" ,"Weight gain").
+condition_symptoms("Heart block" ,"Increased heart rate").
+condition_symptoms("Heart block" ,"Irregular heartbeat").
 
 test_for_condition("Heart block", "Electrocardiogram").
 test_for_condition("Heart block", "Radiographic imaging procedure").
@@ -191,6 +194,18 @@ treatment_for_condition("Heart block", "Bumetanide").
 treatment_for_condition("Heart block", "Chondroitin").
 treatment_for_condition("Heart block", "Flecainide").
 
+condition_symptoms("Heart attack" ,"Sharp chest pain").
+condition_symptoms("Heart attack" ,"Shortness of breath").
+condition_symptoms("Heart attack" ,"Chest tightness").
+condition_symptoms("Heart attack" ,"Nausea").
+condition_symptoms("Heart attack" ,"Arm pain").
+condition_symptoms("Heart attack" ,"Fainting").
+condition_symptoms("Heart attack" ,"Sweating").
+condition_symptoms("Heart attack" ,"Lower body pain").
+condition_symptoms("Heart attack" ,"Heartburn").
+condition_symptoms("Heart attack" ,"Irregular heartbeat").
+condition_symptoms("Heart attack" ,"Burning chest pain").
+condition_symptoms("Heart attack" ,"Increased heart rate").
 
 test_for_condition("Heart attack", "Electrocardiogram").
 test_for_condition("Heart attack", "Hematologic tests (Blood test)").
@@ -215,6 +230,18 @@ treatment_for_condition("Heart attack", "Dopamine").
 treatment_for_condition("Heart attack", "Tenecteplase").
 treatment_for_condition("Heart attack", "Bisoprolol (Emcor)").
 
+condition_symptoms("Heart failure" ,"Shortness of breath").
+condition_symptoms("Heart failure" ,"Sharp chest pain").
+condition_symptoms("Heart failure" ,"Difficulty breathing").
+condition_symptoms("Heart failure" ,"Peripheral edema").
+condition_symptoms("Heart failure" ,"Cough").
+condition_symptoms("Heart failure" ,"Weakness").
+condition_symptoms("Heart failure" ,"Chest tightness").
+condition_symptoms("Heart failure" ,"Leg swelling").
+condition_symptoms("Heart failure" ,"Weight gain").
+condition_symptoms("Heart failure" ,"Fluid retention").
+condition_symptoms("Heart failure" ,"Palpitations").
+condition_symptoms("Heart failure" ,"Hurts to breath").
 
 test_for_condition("Heart failure", "Hematologic tests (Blood test)").
 test_for_condition("Heart failure", "Radiographic imaging procedure").
@@ -239,6 +266,18 @@ treatment_for_condition("Heart failure", "Metolazone").
 treatment_for_condition("Heart failure", "Potassium Chloride").
 treatment_for_condition("Heart failure", "Torsemide").
 
+condition_symptoms("Heart contusion" ,"Apnea").
+condition_symptoms("Heart contusion" ,"Sharp chest pain").
+condition_symptoms("Heart contusion" ,"Depression").
+condition_symptoms("Heart contusion" ,"Fainting").
+condition_symptoms("Heart contusion" ,"Itchy eyelid").
+condition_symptoms("Heart contusion" ,"Cross-eyed").
+condition_symptoms("Heart contusion" ,"Excessive growth").
+condition_symptoms("Heart contusion" ,"Elbow cramps or spasms").
+condition_symptoms("Heart contusion" ,"Wrist weakness").
+condition_symptoms("Heart contusion" ,"Elbow weakness").
+condition_symptoms("Heart contusion" ,"Hip stiffness or tightness").
+condition_symptoms("Heart contusion" ,"Nailbiting").
 
 test_for_condition("Heart contusion", "Radiographic imaging procedure").
 test_for_condition("Heart contusion", "Plain x-ray (X ray)").
@@ -261,6 +300,18 @@ treatment_for_condition("Heart contusion", "Loratadine (Claritin)").
 treatment_for_condition("Heart contusion", "Influenza Virus Vaccine, Inactivated").
 treatment_for_condition("Heart contusion", "Mecamylamine").
 
+condition_symptoms("Increased heart rate" ,"Shortness of breath").
+condition_symptoms("Increased heart rate" ,"Sharp chest pain").
+condition_symptoms("Increased heart rate" ,"Dizziness").
+condition_symptoms("Increased heart rate" ,"Palpitations").
+condition_symptoms("Increased heart rate" ,"Irregular heartbeat").
+condition_symptoms("Increased heart rate" ,"Weakness").
+condition_symptoms("Increased heart rate" ,"Chest tightness").
+condition_symptoms("Increased heart rate" ,"Fainting").
+condition_symptoms("Increased heart rate" ,"Abnormal involuntary movements").
+condition_symptoms("Increased heart rate" ,"Hurts to breath").
+condition_symptoms("Increased heart rate" ,"Mouth dryness").
+condition_symptoms("Increased heart rate" ,"Pallor").
 
 test_for_condition("Increased heart rate", "Electrocardiogram").
 test_for_condition("Increased heart rate", "Hematologic tests (Blood test)").
@@ -282,6 +333,18 @@ treatment_for_condition("Increased heart rate", "Beclomethasone (Qvar)").
 treatment_for_condition("Increased heart rate", "Etomidate").
 treatment_for_condition("Increased heart rate", "Esmolol").
 
+condition_symptoms("Decreased heart rate" ,"Shortness of breath").
+condition_symptoms("Decreased heart rate" ,"Dizziness").
+condition_symptoms("Decreased heart rate" ,"Fainting").
+condition_symptoms("Decreased heart rate" ,"Ear pain").
+condition_symptoms("Decreased heart rate" ,"Sharp chest pain").
+condition_symptoms("Decreased heart rate" ,"Difficulty breathing").
+condition_symptoms("Decreased heart rate" ,"Weakness").
+condition_symptoms("Decreased heart rate" ,"Feeling ill").
+condition_symptoms("Decreased heart rate" ,"Chest tightness").
+condition_symptoms("Decreased heart rate" ,"Hurts to breath").
+condition_symptoms("Decreased heart rate" ,"Plugged feeling in ear").
+condition_symptoms("Decreased heart rate" ,"Irregular heartbeat").
 
 test_for_condition("Decreased heart rate", "Hematologic tests (Blood test)").
 test_for_condition("Decreased heart rate", "Complete blood count (Cbc)").
@@ -306,6 +369,18 @@ treatment_for_condition("Decreased heart rate", "Prazosin").
 treatment_for_condition("Decreased heart rate", "Lutein").
 treatment_for_condition("Decreased heart rate", "Dorzolamide Ophthalmic").
 
+condition_symptoms("Ischemic heart disease" ,"Sharp chest pain").
+condition_symptoms("Ischemic heart disease" ,"Shortness of breath").
+condition_symptoms("Ischemic heart disease" ,"Difficulty breathing").
+condition_symptoms("Ischemic heart disease" ,"Palpitations").
+condition_symptoms("Ischemic heart disease" ,"Dizziness").
+condition_symptoms("Ischemic heart disease" ,"Fatigue").
+condition_symptoms("Ischemic heart disease" ,"Chest tightness").
+condition_symptoms("Ischemic heart disease" ,"Peripheral edema").
+condition_symptoms("Ischemic heart disease" ,"Lymphedema").
+condition_symptoms("Ischemic heart disease" ,"Increased heart rate").
+condition_symptoms("Ischemic heart disease" ,"Muscle pain").
+condition_symptoms("Ischemic heart disease" ,"Throat feels tight").
 
 test_for_condition("Ischemic heart disease", "Hematologic tests (Blood test)").
 test_for_condition("Ischemic heart disease", "Electrocardiogram").
@@ -330,6 +405,18 @@ treatment_for_condition("Ischemic heart disease", "Allopurinol").
 treatment_for_condition("Ischemic heart disease", "Torsemide").
 treatment_for_condition("Ischemic heart disease", "Ezetimibe (Zetia)").
 
+condition_symptoms("Congenital heart defect" ,"Sharp chest pain").
+condition_symptoms("Congenital heart defect" ,"Lack of growth").
+condition_symptoms("Congenital heart defect" ,"Lymphedema").
+condition_symptoms("Congenital heart defect" ,"Arm swelling").
+condition_symptoms("Congenital heart defect" ,"Infant feeding problem").
+condition_symptoms("Congenital heart defect" ,"Slurring words").
+condition_symptoms("Congenital heart defect" ,"Irregular belly button ").
+condition_symptoms("Congenital heart defect" ,"Cross-eyed").
+condition_symptoms("Congenital heart defect" ,"Neck cramps or spasms").
+condition_symptoms("Congenital heart defect" ,"Decreased heart rate").
+condition_symptoms("Congenital heart defect" ,"Excessive appetite").
+condition_symptoms("Congenital heart defect" ,"Hand or finger stiffness or tightness").
 
 test_for_condition("Congenital heart defect", "Radiographic imaging procedure").
 test_for_condition("Congenital heart defect", "Electrocardiogram").
@@ -354,6 +441,18 @@ treatment_for_condition("Congenital heart defect", "Antihemophilic Factor (Obsol
 treatment_for_condition("Congenital heart defect", "Pyrithione Zinc Topical").
 treatment_for_condition("Congenital heart defect", "Brompheniramine (E.N.T.)").
 
+condition_symptoms("Hypertensive heart disease" ,"Palpitations").
+condition_symptoms("Hypertensive heart disease" ,"Shortness of breath").
+condition_symptoms("Hypertensive heart disease" ,"Sharp chest pain").
+condition_symptoms("Hypertensive heart disease" ,"Difficulty breathing").
+condition_symptoms("Hypertensive heart disease" ,"Weakness").
+condition_symptoms("Hypertensive heart disease" ,"Fatigue").
+condition_symptoms("Hypertensive heart disease" ,"Chest tightness").
+condition_symptoms("Hypertensive heart disease" ,"Insomnia").
+condition_symptoms("Hypertensive heart disease" ,"Heartburn").
+condition_symptoms("Hypertensive heart disease" ,"Leg swelling").
+condition_symptoms("Hypertensive heart disease" ,"Fluid retention").
+condition_symptoms("Hypertensive heart disease" ,"Recent pregnancy").
 
 test_for_condition("Hypertensive heart disease", "Hematologic tests (Blood test)").
 test_for_condition("Hypertensive heart disease", "Complete blood count (Cbc)").
@@ -376,3 +475,4 @@ treatment_for_condition("Hypertensive heart disease", "Benazepril").
 treatment_for_condition("Hypertensive heart disease", "Hydralazine").
 treatment_for_condition("Hypertensive heart disease", "Torsemide").
 treatment_for_condition("Hypertensive heart disease", "Hyzaar").
+
