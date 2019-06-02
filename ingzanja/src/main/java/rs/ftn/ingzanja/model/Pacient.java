@@ -20,7 +20,7 @@ public class Pacient {
     private int godiste;
 
     @Column(name = "JMBG", nullable = false)
-    private int JMBG;
+    private String JMBG;
 
 
     public Long getId() {
@@ -47,11 +47,11 @@ public class Pacient {
         this.godiste = godiste;
     }
 
-    public int getJMBG() {
+    public String getJMBG() {
         return JMBG;
     }
 
-    public void setJMBG(int JMBG) {
+    public void setJMBG(String JMBG) {
         this.JMBG = JMBG;
     }
 
