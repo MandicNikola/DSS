@@ -12,7 +12,7 @@ public class PregledDTO {
 
     private String dijagnoza;
 
-    private ArrayList<Long> simptoms;
+    private ArrayList<String> simptoms;
 
     private Long pacientId;
 
@@ -44,11 +44,11 @@ public class PregledDTO {
         this.dijagnoza = dijagnoza;
     }
 
-    public ArrayList<Long> getSimptoms() {
+    public ArrayList<String> getSimptoms() {
         return simptoms;
     }
 
-    public void setSimptoms(ArrayList<Long> simptoms) {
+    public void setSimptoms(ArrayList<String> simptoms) {
         this.simptoms = simptoms;
     }
 
