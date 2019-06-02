@@ -1,17 +1,23 @@
 package rs.ftn.ingzanja.model;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 public class Simptom {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name="naziv")
     private String naziv;
+
+    @ManyToMany(mappedBy = "simptoms")
+    private
+    Set<Pregled> pregledi = new HashSet<>();
 
     public Long getId() {
         return id;
@@ -30,6 +36,14 @@ public class Simptom {
     }
 
     public Simptom() { super(); }
+
+    public Set<Pregled> getPregledi() {
+        return pregledi;
+    }
+
+    public void setPregledi(Set<Pregled> pregledi) {
+        this.pregledi = pregledi;
+    }
 
     @Override
     public boolean equals(Object o) {
