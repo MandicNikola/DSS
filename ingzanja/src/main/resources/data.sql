@@ -1,5 +1,5 @@
-insert into pacient (id, ime, prezime, godiste, jmbg) values (1, 'Nikola', 'Nikolic', 1995, '0605995172650');
-insert into pacient (id, ime, prezime, godiste, jmbg) values (2, 'Marko', 'Markovic', 1996, '0612995172650');
+insert into pacient (id, ime, prezime, godiste, jmbg, rasa, pol) values (1, 'Nikola', 'Nikolic', 1995, '0605995172650', 'white', 'male');
+insert into pacient (id, ime, prezime, godiste, jmbg, rasa, pol) values (2, 'Sima', 'Simic', 1996, '0612995172650', 'white', 'male');
 
 
 insert into simptom (naziv) values  ('abnormal_involuntary_movements');
