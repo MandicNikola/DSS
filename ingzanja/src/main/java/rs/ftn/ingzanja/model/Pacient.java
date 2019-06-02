@@ -26,6 +26,14 @@ public class Pacient {
     @Column(name = "JMBG", nullable = false)
     private String JMBG;
 
+    @Enumerated(EnumType.STRING)
+    @Column(name="rasa")
+    private Race rasa;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name="pol")
+    private Pol pol;
+
     @OneToMany(
             cascade = CascadeType.ALL,
             fetch = FetchType.LAZY,
@@ -82,6 +90,22 @@ public class Pacient {
         this.pregledi = pregledi;
     }
 
+    public Race getRasa() {
+        return rasa;
+    }
+
+    public void setRasa(Race rasa) {
+        this.rasa = rasa;
+    }
+
+    public Pol getPol() {
+        return pol;
+    }
+
+    public void setPol(Pol pol) {
+        this.pol = pol;
+    }
+
     public Pacient() { super();  }
 
     public Pacient(PacientDTO pacient)
@@ -107,5 +131,7 @@ public class Pacient {
         }
         return Objects.equals(id, c.id);
     }
+
+
 
 }
