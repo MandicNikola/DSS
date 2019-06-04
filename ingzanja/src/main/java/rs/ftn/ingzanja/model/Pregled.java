@@ -1,5 +1,7 @@
 package rs.ftn.ingzanja.model;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Objects;
@@ -17,6 +19,9 @@ public class Pregled {
 
     @Column(name="dijagnoza")
     private String dijagnoza;
+
+    @Column(name="lek")
+    private String lek;
 
     @ManyToMany
     @JoinTable(
@@ -71,6 +76,13 @@ public class Pregled {
         this.pacient = pacient;
     }
 
+    public String getLek() {
+        return lek;
+    }
+
+    public void setLek(String lek) {
+        this.lek = lek;
+    }
     public Pregled() { super(); }
 
     @Override

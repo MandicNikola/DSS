@@ -1,5 +1,6 @@
 package rs.ftn.ingzanja.model;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
 import rs.ftn.ingzanja.dto.PacientDTO;
 
 import javax.persistence.*;
