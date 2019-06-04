@@ -30,13 +30,14 @@ public class PregledServiceImpl implements PregledService {
     public void savePregledOnly(Pregled p, PregledDTO body) {
 
         Set<Simptom> simptoms = new HashSet<>();
-        for(String s : body.getSimptoms())
-        {
-            Simptom simptom = symptomRepo.findOneByNaziv(s);
-            if(simptom != null)
-                simptoms.add(simptom);
+        if(body.getSimptoms() != null) {
+            for (String s : body.getSimptoms()) {
+                Simptom simptom = symptomRepo.findOneByNaziv(s);
+                if (simptom != null)
+                    simptoms.add(simptom);
+            }
+            p.setSimptoms(simptoms);
         }
-        p.setSimptoms(simptoms);
         repository.save(p);
 
     }
