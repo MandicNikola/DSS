@@ -13,13 +13,11 @@ import rs.ftn.ingzanja.dto.PregledDTO;
 import rs.ftn.ingzanja.model.*;
 import rs.ftn.ingzanja.service.PregledServiceImpl;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashMap;
+import java.util.*;
 
 @RestController
 @RequestMapping(value = "api/pregled")
+@CrossOrigin(origins = "http://localhost:4200")
 public class PregledController {
 
     @Autowired
@@ -62,8 +60,12 @@ public class PregledController {
         if(p == null)
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 
-        p.setDijagnoza(body.getDijagnoza());
-        p.setTerapija(body.getTerapija());
+        if(body.getDijagnoza() != null)
+            p.setDijagnoza(body.getDijagnoza());
+
+        if(body.getTerapija() != null)
+            p.setTerapija(body.getTerapija());
+
         service.savePregledOnly(p,body);
 
         return new ResponseEntity<>(id, HttpStatus.OK);
@@ -207,13 +209,17 @@ public class PregledController {
      * @return retList - ArrayList-a potencijalnih DIJAGNOSTIKA
      */
     @RequestMapping(
-            value = "/diagnoseTerapyProlog",
+            value = "/diagnoseTerapyProlog/{id}",
             method = RequestMethod.POST,
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public ResponseEntity<ArrayList<String>> diagnoseTerapyProlog(@RequestBody BolestDTO obj)
+    public ResponseEntity<ArrayList<String>> diagnoseTerapyProlog(@RequestBody BolestDTO obj, @PathVariable("id")Long id)
     {
+        Pregled p = service.findPregledById(id);
+        p.setDijagnoza(obj.getBolest());
+        service.savePregled(p,p.getPacient().getId());
+
         String bolest = obj.getBolest();
         bolest.toLowerCase();
         bolest=bolest.replace(' ','_');
@@ -297,11 +303,24 @@ public class PregledController {
     }
 
 
+    @RequestMapping( value = "/simptoms/{id}",
+            method = RequestMethod.GET,
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public ResponseEntity<ArrayList<String>> simptoms(@PathVariable("id") Long id)
+    {
+        ArrayList<String> retLista = new ArrayList<>();
+        Pregled p = service.findPregledById(id);
+        if( p == null)
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 
+        Set<Simptom> simptomi = p.getSimptoms();
+        if(simptomi == null)
+            return new ResponseEntity<>(retLista,HttpStatus.OK);
 
+        for(Simptom simptom : simptomi)
+            retLista.add(simptom.getNaziv());
 
-
-
-
-
+        return new ResponseEntity<>(retLista,HttpStatus.OK);
+    }
 }

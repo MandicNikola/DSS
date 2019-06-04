@@ -6,6 +6,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import rs.ftn.ingzanja.dto.PacientDTO;
+import rs.ftn.ingzanja.dto.PregledDTO;
 import rs.ftn.ingzanja.model.Pacient;
 import rs.ftn.ingzanja.model.Pregled;
 import rs.ftn.ingzanja.service.PacientService;
@@ -17,6 +18,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "api/pacients")
+@CrossOrigin(origins = "http://localhost:4200")
 public class PacientContoller {
 
     @Autowired
@@ -31,9 +33,17 @@ public class PacientContoller {
         return retList;
     }
 
-    @RequestMapping(value = "/all", method = RequestMethod.GET)
-    public List<Pacient> getAllPacients() {
-        return service.findAllPacients();
+    @RequestMapping(value = "/all", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<PacientDTO>> getAllPacients() {
+        ArrayList<PacientDTO> retList = new ArrayList<>();
+        List<Pacient> list = service.findAllPacients();
+        for(Pacient pacient: list)
+        {
+            retList.add(new PacientDTO(pacient.getIme(),pacient.getPrezime(), pacient.getId(), pacient.getGodiste(), pacient.getJMBG(), pacient.getPol()));
+        }
+
+        return new ResponseEntity<>(retList, HttpStatus.OK);
+
     }
 
     @RequestMapping(value = "/add",
@@ -48,6 +58,45 @@ public class PacientContoller {
         service.savePacient(p);
         return p;
     }
+
+    @RequestMapping(value = "/pregledi/{id}",
+            method = RequestMethod.GET,
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public ResponseEntity<ArrayList<PregledDTO>> pregledi(@PathVariable("id") Long id)
+    {
+            ArrayList<PregledDTO> retLista = new ArrayList<>();
+            Pacient p = service.findPacientById(id);
+            if(p == null)
+                return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+
+            for(Pregled pregled : p.getPregledi()){
+                PregledDTO dto = new PregledDTO();
+                Long idPregleda = pregled.getId();
+                String terapija = pregled.getTerapija();
+                String dijagnoza = pregled.getDijagnoza();
+                String lek = pregled.getLek();
+                if(terapija == null)
+                    dto.setTerapija("");
+                else
+                    dto.setTerapija(terapija);
+                if(dijagnoza == null)
+                    dto.setDijagnoza("");
+                else
+                    dto.setDijagnoza(dijagnoza);
+                if(lek == null)
+                    dto.setLek("");
+                else
+                    dto.setLek(lek);
+
+                dto.setId(idPregleda);
+                dto.setPacientId(id);
+                retLista.add(dto);
+            }
+
+            return new ResponseEntity<>(retLista,HttpStatus.OK);
+    }
+
 
 
 
