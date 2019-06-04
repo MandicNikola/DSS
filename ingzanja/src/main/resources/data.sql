@@ -1,6 +1,28 @@
 insert into pacient (id, ime, prezime, godiste, jmbg, rasa, pol) values (1, 'Nikola', 'Nikolic', 1995, '0605995172650', 'white', 'male');
 insert into pacient (id, ime, prezime, godiste, jmbg, rasa, pol) values (2, 'Sima', 'Simic', 1996, '0612995172650', 'white', 'male');
 
+insert into pregled (id,pacient_id) values (1,1);
+insert into pregled (id,pacient_id) values (2,1);
+insert into pregled (id,pacient_id) values (3,2);
+insert into pregled (id,pacient_id) values (4,2);
+
+
+insert into pregled_simptomi(pregled_id, simptom_id) values (1,1);
+insert into pregled_simptomi(pregled_id, simptom_id) values (1,2);
+insert into pregled_simptomi(pregled_id, simptom_id) values (1,3);
+insert into pregled_simptomi(pregled_id, simptom_id) values (1,4);
+insert into pregled_simptomi(pregled_id, simptom_id) values (2,1);
+insert into pregled_simptomi(pregled_id, simptom_id) values (2,41);
+insert into pregled_simptomi(pregled_id, simptom_id) values (3,1);
+insert into pregled_simptomi(pregled_id, simptom_id) values (3,2);
+insert into pregled_simptomi(pregled_id, simptom_id) values (3,3);
+insert into pregled_simptomi(pregled_id, simptom_id) values (4,13);
+insert into pregled_simptomi(pregled_id, simptom_id) values (4,15);
+insert into pregled_simptomi(pregled_id, simptom_id) values (4,16);
+insert into pregled_simptomi(pregled_id, simptom_id) values (4,1);
+
+
+
 
 insert into simptom (naziv) values  ('abnormal_involuntary_movements');
 insert into simptom (naziv) values  ('apnea');

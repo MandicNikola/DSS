@@ -1,0 +1,98 @@
+
+<app-navigation></app-navigation>
+<div id="mainContainer">
+  <div class="sectionPacients" id="section">
+      <h1 id="headerPacienti">Pacijenti</h1>
+      <table class="table table-hover">
+          <thead>
+              <tr>
+                <th scope="col">Ime</th>
+                <th scope="col">Prezime</th>
+                <th scope="col">Godiste</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let pacient of pacients">
+                <td>{{pacient.ime}}</td>
+                <td>{{pacient.prezime}}</td>
+                <td>{{pacient.godiste}}.</td>
+                <td><button type="button" class="btn btn-primary btn-sm" routerLink="/pregled/{{pacient.id}}"  (click)="noviPregled(pacient.id)">Pregled</button></td>
+                <td><button type="button" class="btn btn-info btn-sm" (click)="onDetailsClick(pacient.id)">Detalji</button></td>
+                </tr>
+            </tbody>
+      </table>
+
+  </div>
+
+  <div class="sectionPregled" id="section">
+    <div class="pacientInfo" *ngIf="selectedPacient">
+      <h3 id="headerInfo">Informacije o pacijentu : </h3>
+      <ul class="list-group">
+          <li class="list-group-item"><span>Ime:</span> {{selectedPacient.ime}}</li>
+          <li class="list-group-item"><span>Prezime:</span> {{selectedPacient.prezime}}</li>
+          <li class="list-group-item"><span>Godiste:</span>{{selectedPacient.godiste}}.</li>
+          <li class="list-group-item"><span>JMBG:</span>{{selectedPacient.jmbg}}</li>
+          <li class="list-group-item"><span>Pol:</span>{{selectedPacient.pol}}</li>
+      </ul>
+        
+        <h3 id="headerInfo">Istorija pregleda : </h3>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Terapija:</th>
+                  <th scope="col">Dijagnoza:</th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+              <tbody>
+                  <tr *ngFor="let pregled of pregledi">
+                  <th scope="row">{{pregled.id}}</th>
+                  <td>{{pregled.terapija}}</td>
+                  <td>{{pregled.dijagnoza}}</td>
+                  <td><button type="button" class="btn btn-info btn-sm" (click)="onPregledClick(pregled.id)">Detalji</button></td>
+                  </tr>
+              </tbody>
+        </table>
+
+    </div>
+  </div>
+
+  <div id="section" class="sectionDiagnose">
+    <div class="pregledInfo" *ngIf="selectedPregled">
+        <h3 id="headerInfo">Informacije o pregledu #{{selectedPregled.id}} </h3>
+        <ul class="list-group">
+          <li class="list-group-item"><span>Dijagnoza:</span> {{selectedPregled.dijagnoza}}</li>
+          <li class="list-group-item"><span>Terapija:</span>{{selectedPregled.terapija}} </li>
+          <li class="list-group-item"><span>Lek:</span>{{selectedPregled.lek}}</li>
+          <li class="list-group-item"><span>Simptomi:</span>
+            <ul class="list-group">
+                <li class="list-group-item list-group-item-secondary" *ngFor="let simptom of simptoms">{{simptom}}</li>
+            </ul>
+          </li>
+          <li class="list-group-item justify-content-center " *ngIf="diagnose === true"><div class="text-center"><button type="button" class="btn btn-info btn-block" (click)="diagnoseClick(selectedPregled.id)">Diagnose</button></div></li>
+          <li class="list-group-item justify-content-center " *ngIf="terapy === true"><div class="text-center"><button type="button" class="btn btn-info btn-block" (click)="terapyClick()">Terapy</button></div></li>
+          
+        </ul>
+        <div *ngIf="showDiagnoses === true">
+            <h3 id="headerInfo">Lista dijagnoza:</h3>
+            <ul class="list-group">
+                <li class="list-group-item" *ngFor="let diag of diagnoses"><span>{{diag}}</span><div class="text-right"><button type="button" class="btn btn-info" (click)="chooseDiagnose(diag)">Odaberi</button></div></li>
+            </ul>
+        </div>
+
+        <div *ngIf="showTerapies === true">
+            <h3 id="headerInfo">Lista terapija:</h3>
+            <ul class="list-group">
+                <li class="list-group-item" *ngFor="let terapy of terapies"><span>{{terapy}}</span><div class="text-right"><button type="button" class="btn btn-info" (click)="chooseTerapy(selectedPregled.id, terapy)">Odaberi</button></div></li>
+            </ul>
+        </div>
+
+        <div>
+        </div>
+    </div>
+  </div>
+</div>
+
