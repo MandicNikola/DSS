@@ -12,6 +12,10 @@ public class PregledDTO {
 
     private String dijagnoza;
 
+    private String lek;
+
+
+
     private ArrayList<String> simptoms;
 
     private Long pacientId;
@@ -58,5 +62,13 @@ public class PregledDTO {
 
     public void setPacientId(Long pacientId) {
         this.pacientId = pacientId;
+    }
+
+    public String getLek() {
+        return lek;
+    }
+
+    public void setLek(String lek) {
+        this.lek = lek;
     }
 }
