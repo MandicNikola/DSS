@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
+import { Pacient } from '../model/Pacient';
 
 
 
@@ -47,6 +48,14 @@ export class PacientService {
 
   getSimptomsAll() : Observable<any> {
     return this.http.get(`${ROOT_URL}/simptoms/all`);
+  }
+
+  getBolesti() : Observable<any> {
+    return this.http.get(`${ROOT_URL}/simptoms/bolesti`);
+  }
+
+  addPacient(body: Pacient) : Observable<any> {
+    return this.http.post(`${ROOT_URL}/pacients/add`,body);
   }
 
 }

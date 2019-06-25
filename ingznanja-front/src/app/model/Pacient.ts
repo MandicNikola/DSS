@@ -7,4 +7,14 @@ export class Pacient {
     rasa ?: string;
     pol ?: string;
     pregledi ?: any;
+    telefon ?: string;
+    adresa ?: string;
+
+    pusac ?: boolean;
+    alkohol ?: boolean;
+    debljina ?: string;
+    porodicneBolesti ?: Array<string>;
+    istorijaBolesti ?: Array<string>;
+
+
 }

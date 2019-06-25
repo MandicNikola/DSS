@@ -1,0 +1,25 @@
+<div class="mainContainer">
+<h1 id="headerPacienti">Pacijenti</h1>
+<table class="table table-hover">
+    <thead>
+        <tr>
+          <th>#</th>
+          <th scope="col"><input class="form-control" name="filterIme"     (input)="filter()"  [(ngModel)]="filterIme"  type="text" placeholder="Ime"></th>
+          <th scope="col"><input class="form-control" name="filterPrezime" (input)="filter()"  [(ngModel)]="filterPrezime"  type="text" placeholder="Prezime"></th>
+          <th scope="col"><input class="form-control" name="filterGodiste" (input)="filter()"  [(ngModel)]="filterGodiste"  type="number" placeholder="Godiste " min="1950"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let pacient of filterPacients; trackBy: trackByIdentity;">
+          <td>{{pacient.id}}</td>
+          <td>{{pacient.ime}}</td>
+          <td>{{pacient.prezime}}</td>
+          <td>{{pacient.godiste}}.</td>
+          <td><button type="button" class="btn btn-primary btn-sm" routerLink="/pregled/{{pacient.id}}"  (click)="noviPregled(pacient.id)">Pregled</button></td>
+          <td><button type="button" class="btn btn-info btn-sm" (click)="onDetailsClick(pacient.id)">Detalji</button></td>
+          </tr>
+      </tbody>
+</table>
+</div>
