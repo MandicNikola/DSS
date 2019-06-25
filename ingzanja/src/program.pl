@@ -26,9 +26,9 @@ treatment_for_disease(heart_block, glucosamine).
 treatment_for_disease(heart_block, ascorbic_acid).
 treatment_for_disease(heart_block, glimepiride).
 treatment_for_disease(heart_block, amiodarone).
-treatment_for_disease(heart_block, atropine_(uaa)).
+treatment_for_disease(heart_block, atropine).
 treatment_for_disease(heart_block, felodipine).
-treatment_for_disease(heart_block, dutasteride_(avodart)).
+treatment_for_disease(heart_block, dutasteride).
 treatment_for_disease(heart_block, metolazone).
 treatment_for_disease(heart_block, sotalol).
 treatment_for_disease(heart_block, triamterene).
@@ -75,16 +75,16 @@ test_for_disease(heart_attack, intravenous_fluid_replacement).
 treatment_for_disease(heart_attack, aspirin).
 treatment_for_disease(heart_attack, nitroglycerin).
 treatment_for_disease(heart_attack, metoprolol).
-treatment_for_disease(heart_attack, clopidogrel_(plavix)).
+treatment_for_disease(heart_attack, clopidogrel).
 treatment_for_disease(heart_attack, heparin).
-treatment_for_disease(heart_attack, enoxaparin_(lovenox)).
+treatment_for_disease(heart_attack, enoxaparin).
 treatment_for_disease(heart_attack, isosorbide).
 treatment_for_disease(heart_attack, oxygen).
-treatment_for_disease(heart_attack, eptifibatide_(integrilin)).
+treatment_for_disease(heart_attack, eptifibatide).
 treatment_for_disease(heart_attack, amiodarone).
 treatment_for_disease(heart_attack, dopamine).
 treatment_for_disease(heart_attack, tenecteplase).
-treatment_for_disease(heart_attack, bisoprolol_(emcor)).
+treatment_for_disease(heart_attack, bisoprolol).
 
 sexRisk(male ,heart_attack, 1.4).
 sexRisk(female ,heart_attack, 0.7).
@@ -173,14 +173,14 @@ test_for_disease(heart_contusion, cat_scan_of_head_(head_ct)).
 test_for_disease(heart_contusion, cardiac_enzymes_measurement_(cardiac_enzymes_test)).
 
 treatment_for_disease(heart_contusion, cortisone).
-treatment_for_disease(heart_contusion, zoledronic_acid_(reclast)).
+treatment_for_disease(heart_contusion, zoledronic_acid).
 treatment_for_disease(heart_contusion, quinapril).
 treatment_for_disease(heart_contusion, cefdinir).
-treatment_for_disease(heart_contusion, polyethylene_glycol_3350_(miralax)).
-treatment_for_disease(heart_contusion, hepatitis_a_vaccine_(obsolete)).
-treatment_for_disease(heart_contusion, bacitracin_(septa)).
-treatment_for_disease(heart_contusion, escitalopram_(lexapro)).
-treatment_for_disease(heart_contusion, loratadine_(claritin)).
+treatment_for_disease(heart_contusion, polyethylene_glycol_3350).
+treatment_for_disease(heart_contusion, hepatitis_a_vaccine).
+treatment_for_disease(heart_contusion, bacitracin).
+treatment_for_disease(heart_contusion, escitalopram).
+treatment_for_disease(heart_contusion, loratadine).
 treatment_for_disease(heart_contusion, influenza_virus_vaccine,_inactivated).
 treatment_for_disease(heart_contusion, mecamylamine).
 
@@ -223,11 +223,11 @@ test_for_disease(increased_heart_rate, intravenous_fluid_replacement).
 treatment_for_disease(increased_heart_rate, diltiazem).
 treatment_for_disease(increased_heart_rate, adenosine).
 treatment_for_disease(increased_heart_rate, flecainide).
-treatment_for_disease(increased_heart_rate, fondaparinux_(arixtra)).
+treatment_for_disease(increased_heart_rate, fondaparinux).
 treatment_for_disease(increased_heart_rate, propafenone).
 treatment_for_disease(increased_heart_rate, carbon_dioxide).
 treatment_for_disease(increased_heart_rate, procainamide).
-treatment_for_disease(increased_heart_rate, beclomethasone_(qvar)).
+treatment_for_disease(increased_heart_rate, beclomethasone).
 treatment_for_disease(increased_heart_rate, etomidate).
 treatment_for_disease(increased_heart_rate, esmolol).
 
@@ -267,16 +267,16 @@ test_for_disease(decreased_heart_rate, kidney_function_tests_(kidney_function_te
 test_for_disease(decreased_heart_rate, cardiac_enzymes_measurement_(cardiac_enzymes_test)).
 test_for_disease(decreased_heart_rate, glucose_measurement_(glucose_level)).
 
-treatment_for_disease(decreased_heart_rate, atropine_(uaa)).
+treatment_for_disease(decreased_heart_rate, atropine).
 treatment_for_disease(decreased_heart_rate, glucagon).
-treatment_for_disease(decreased_heart_rate, sodium_polystyrene_sulfonate_(kayexalate)).
+treatment_for_disease(decreased_heart_rate, sodium_polystyrene_sulfonate).
 treatment_for_disease(decreased_heart_rate, dopamine).
 treatment_for_disease(decreased_heart_rate, sodium_bicarbonate).
 treatment_for_disease(decreased_heart_rate, sotalol).
 treatment_for_disease(decreased_heart_rate, felodipine).
 treatment_for_disease(decreased_heart_rate, isoproterenol).
 treatment_for_disease(decreased_heart_rate, insulin_aspart-insulin_aspart_protamine).
-treatment_for_disease(decreased_heart_rate, dimenhydrinate_(dramamine)).
+treatment_for_disease(decreased_heart_rate, dimenhydrinate).
 treatment_for_disease(decreased_heart_rate, prazosin).
 treatment_for_disease(decreased_heart_rate, lutein).
 treatment_for_disease(decreased_heart_rate, dorzolamide_ophthalmic).
@@ -318,18 +318,18 @@ test_for_disease(ischemic_heart_disease, electrolytes_panel).
 test_for_disease(ischemic_heart_disease, echocardiography).
 
 treatment_for_disease(ischemic_heart_disease, carvedilol).
-treatment_for_disease(ischemic_heart_disease, clopidogrel_(plavix)).
+treatment_for_disease(ischemic_heart_disease, clopidogrel).
 treatment_for_disease(ischemic_heart_disease, nitroglycerin).
 treatment_for_disease(ischemic_heart_disease, digoxin).
 treatment_for_disease(ischemic_heart_disease, spironolactone).
 treatment_for_disease(ischemic_heart_disease, isosorbide).
-treatment_for_disease(ischemic_heart_disease, rosuvastatin_(crestor)).
+treatment_for_disease(ischemic_heart_disease, rosuvastatin).
 treatment_for_disease(ischemic_heart_disease, amiodarone).
 treatment_for_disease(ischemic_heart_disease, niacin).
-treatment_for_disease(ischemic_heart_disease, fenofibrate_(tricor)).
+treatment_for_disease(ischemic_heart_disease, fenofibrate).
 treatment_for_disease(ischemic_heart_disease, allopurinol).
 treatment_for_disease(ischemic_heart_disease, torsemide).
-treatment_for_disease(ischemic_heart_disease, ezetimibe_(zetia)).
+treatment_for_disease(ischemic_heart_disease, ezetimibe).
 
 sexRisk(male ,ischemic_heart_disease, 1.6).
 sexRisk(female ,ischemic_heart_disease, 0.6).
@@ -369,15 +369,15 @@ test_for_disease(congenital_heart_defect, diagnostic_cardiac_catheterization;_co
 
 treatment_for_disease(congenital_heart_defect, digoxin).
 treatment_for_disease(congenital_heart_defect, captopril).
-treatment_for_disease(congenital_heart_defect, palivizumab_(synagis)).
+treatment_for_disease(congenital_heart_defect, palivizumab).
 treatment_for_disease(congenital_heart_defect, chlorothiazide).
-treatment_for_disease(congenital_heart_defect, treprostinil_(remodulin)).
+treatment_for_disease(congenital_heart_defect, treprostinil).
 treatment_for_disease(congenital_heart_defect, procainamide).
-treatment_for_disease(congenital_heart_defect, ambrisentan_(letairis)).
+treatment_for_disease(congenital_heart_defect, ambrisentan).
 treatment_for_disease(congenital_heart_defect, haemophilus_b_conjugate_vaccine).
-treatment_for_disease(congenital_heart_defect, bosentan_(tracleer)).
-treatment_for_disease(congenital_heart_defect, entecavir_(baraclude)).
-treatment_for_disease(congenital_heart_defect, antihemophilic_factor_(obsolete)).
+treatment_for_disease(congenital_heart_defect, bosentan).
+treatment_for_disease(congenital_heart_defect, entecavir).
+treatment_for_disease(congenital_heart_defect, antihemophilic_factor).
 treatment_for_disease(congenital_heart_defect, pyrithione_zinc_topical).
 treatment_for_disease(congenital_heart_defect, brompheniramine).
 
@@ -420,8 +420,8 @@ test_for_disease(hypertensive_heart_disease, electrolytes_panel).
 treatment_for_disease(hypertensive_heart_disease, amlodipine).
 treatment_for_disease(hypertensive_heart_disease, carvedilol).
 treatment_for_disease(hypertensive_heart_disease, isosorbide).
-treatment_for_disease(hypertensive_heart_disease, rosuvastatin_(crestor)).
-treatment_for_disease(hypertensive_heart_disease, valsartan_(diovan)).
+treatment_for_disease(hypertensive_heart_disease, rosuvastatin).
+treatment_for_disease(hypertensive_heart_disease, valsartan.
 treatment_for_disease(hypertensive_heart_disease, digoxin).
 treatment_for_disease(hypertensive_heart_disease, diltiazem).
 treatment_for_disease(hypertensive_heart_disease, spironolactone).
@@ -519,35 +519,35 @@ test(radiographic_imaging_procedure).
 test(complete_physical_skin_exam_performed_(ml)).
 test(complete_blood_count_(cbc)).
 
-treatment(polyethylene_glycol_3350_(miralax)).
-treatment(clopidogrel_(plavix)).
-treatment(ezetimibe_(zetia)).
-treatment(antihemophilic_factor_(obsolete)).
+treatment(polyethylene_glycol_3350).
+treatment(clopidogrel).
+treatment(ezetimibe).
+treatment(antihemophilic_factor).
 treatment(diltiazem).
 treatment(hyzaar).
-treatment(bacitracin_(septa)).
+treatment(bacitracin).
 treatment(etomidate).
 treatment(cefdinir).
 treatment(oxygen).
 treatment(prazosin).
 treatment(cortisone).
-treatment(palivizumab_(synagis)).
+treatment(palivizumab).
 treatment(glimepiride).
-treatment(loratadine_(claritin)).
+treatment(loratadine).
 treatment(hydralazine).
-treatment(zoledronic_acid_(reclast)).
+treatment(zoledronic_acid_).
 treatment(triamterene).
 treatment(niacin).
-treatment(valsartan_(diovan)).
+treatment(valsartan).
 treatment(spironolactone).
 treatment(glucosamine).
 treatment(potassium_chloride).
-treatment(bisoprolol_(emcor)).
+treatment(bisoprolol).
 treatment(quinapril).
 treatment(propafenone).
 treatment(insulin_aspart-insulin_aspart_protamine).
 treatment(warfarin).
-treatment(treprostinil_(remodulin)).
+treatment(treprostinil).
 treatment(haemophilus_b_conjugate_vaccine).
 treatment(torsemide).
 treatment(pyrithione_zinc_topical).
@@ -558,46 +558,46 @@ treatment(digoxin).
 treatment(chlorothiazide).
 treatment(lutein).
 treatment(dopamine).
-treatment(dutasteride_(avodart)).
+treatment(dutasteride)).
 treatment(flecainide).
 treatment(tenecteplase).
 treatment(dorzolamide_ophthalmic).
-treatment(dimenhydrinate_(dramamine)).
-treatment(bosentan_(tracleer)).
+treatment(dimenhydrinate).
+treatment(bosentan).
 treatment(influenza_virus_vaccine,_inactivated).
-treatment(sodium_polystyrene_sulfonate_(kayexalate)).
+treatment(sodium_polystyrene_sulfonate).
 treatment(bumetanide).
-treatment(beclomethasone_(qvar)).
+treatment(beclomethasone).
 treatment(metoprolol).
 treatment(captopril).
 treatment(nitroglycerin).
-treatment(hepatitis_a_vaccine_(obsolete)).
+treatment(hepatitis_a_vaccine).
 treatment(carvedilol).
 treatment(carbon_dioxide).
 treatment(amlodipine).
 treatment(furosemide).
 treatment(sotalol).
 treatment(sodium_bicarbonate).
-treatment(fenofibrate_(tricor)).
+treatment(fenofibrate).
 treatment(felodipine).
 treatment(procainamide).
-treatment(atropine_(uaa)).
+treatment(atropine).
 treatment(aspirin).
 treatment(glucagon).
 treatment(adenosine).
 treatment(heparin).
-treatment(eptifibatide_(integrilin)).
+treatment(eptifibatide).
 treatment(metolazone).
-treatment(entecavir_(baraclude)).
-treatment(escitalopram_(lexapro)).
-treatment(enoxaparin_(lovenox)).
-treatment(rosuvastatin_(crestor)).
+treatment(entecavir).
+treatment(escitalopram).
+treatment(enoxaparin).
+treatment(rosuvastatin).
 treatment(isosorbide).
 treatment(brompheniramine).
-treatment(ambrisentan_(letairis)).
+treatment(ambrisentan).
 treatment(esmolol).
 treatment(allopurinol).
-treatment(fondaparinux_(arixtra)).
+treatment(fondaparinux).
 treatment(isoproterenol).
 treatment(mecamylamine).
 treatment(ascorbic_acid).
