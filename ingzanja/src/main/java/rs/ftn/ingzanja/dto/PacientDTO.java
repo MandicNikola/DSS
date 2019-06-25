@@ -4,6 +4,8 @@ import rs.ftn.ingzanja.model.Pacient;
 import rs.ftn.ingzanja.model.Pol;
 import rs.ftn.ingzanja.model.Race;
 
+import java.util.List;
+
 public class PacientDTO {
 
     private Long id;
@@ -17,6 +19,22 @@ public class PacientDTO {
     private String JMBG;
 
     private Pol pol;
+
+    private Race rasa;
+
+    private String telefon;
+
+    private String adresa;
+
+    private List<String> porodicneBolesti;
+
+    private List<String> istorijaBolesti;
+
+    private boolean alkohol;
+
+    private boolean pusac;
+
+    private String debljina;
 
     public PacientDTO(){
         super();
@@ -34,6 +52,14 @@ public class PacientDTO {
     }
 
 
+
+    public Race getRasa() {
+        return rasa;
+    }
+
+    public void setRasa(Race rasa) {
+        this.rasa = rasa;
+    }
 
     public String getIme() {
         return ime;
