@@ -84,5 +84,13 @@ export class PacientService {
     return this.http.get(`${ROOT_URL}/preventivni/getAll/${id}`);
   }
 
+  getDijagnostike(body: any): Observable<any> {
+    return this.http.post(`${ROOT_URL}/pregled/getDijagnostike`, body);
+  }
+
+  setDijagnostika(body: Pregled) : Observable<any> {
+    return this.http.post(`${ROOT_URL}/pregled/setDijagnostika`, body);
+  }
+
 
 }

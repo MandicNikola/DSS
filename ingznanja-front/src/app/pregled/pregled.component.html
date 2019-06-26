@@ -17,9 +17,28 @@
       <div class="form-group">
         <button (click)="diagnose()" type="button" class="btn btn-success">Diagnose</button>
       </div>
-      <div class="form-group">
-        <label for="exampleFormControlTextarea1">Example textarea</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+
+      <div *ngIf="showBolest" class="form-group">
+        <label for="selectBolest">Odaberi bolest :</label>
+        <select  [(ngModel)]="selectBolest" class="form-control" id="selectBolest" name="selectBolest">
+          <option *ngFor="let bolest of potencijalneBolesti">{{bolest}}</option>
+        </select>
       </div>
+      <div *ngIf="showBolest" class="form-group">
+        <button (click)="diagnostika()" type="button" class="btn btn-primary">Diagnostike</button>
+      </div>
+
+
+      <div *ngIf="showDijagnostika" class="form-group">
+          <label for="selectDijagnostika">Odaberi dijagnostiku :</label>
+          <select  [(ngModel)]="selectDijagnostika" class="form-control" id="selectDijagnostika" name="selectDijagnostika">
+            <option *ngFor="let dijagnostika of dijagnostike">{{dijagnostika}}</option>
+          </select>
+        </div>
+        <div *ngIf="showDijagnostika" class="form-group">
+          <button (click)="save()" type="button" class="btn btn-info">Save</button>
+        </div>
+
+
     </form>
   </div>

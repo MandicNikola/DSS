@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PacientService } from '../services/pacient.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { Pregled } from '../model/Pregled';
 @Component({
@@ -17,9 +17,16 @@ export class PregledComponent implements OnInit {
   selectMode : string = 'RULE';
 
   dijagnostike : string[] = [];
+  potencijalneBolesti : string[] = [];
+
+  selectBolest : string = '';
+  showBolest : boolean = false;
+
+  selectDijagnostika : string = '';
+  showDijagnostika : boolean = false;
 
   id : string;
-  constructor(private pacientService : PacientService, private route: ActivatedRoute) {
+  constructor(private router: Router,private pacientService : PacientService, private route: ActivatedRoute) {
     pacientService.getSimptomsAll().subscribe(data => {
       this.simptoms = data;
     });
@@ -39,8 +46,32 @@ export class PregledComponent implements OnInit {
   //zavrsiti ovo iz dijagnoze sta nam treba
   diagnose() : void {
       this.pacientService.diagnose(this.pregled).subscribe(
-        data => console.log(data)
+        data => {
+          this.potencijalneBolesti = data;
+          this.showDijagnostika = false;
+          this.showBolest = true;
+        }
       );
+  }
+
+  diagnostika() : void {
+    const body = { bolest: this.selectBolest };
+    this.pacientService.getDijagnostike(body).subscribe(
+      dijagnostike => {
+        this.dijagnostike = dijagnostike;
+        this.showDijagnostika = true;
+      }
+    );
+  }
+
+  save() : void {
+    let pregled : Pregled = new Pregled();
+    pregled.id = this.idPregled;
+    pregled.dijagnostika = this.selectDijagnostika;
+    this.pacientService.setDijagnostika(pregled).subscribe(
+      response => this.router.navigate(['/pacients'])
+    );
+
   }
 
 }
