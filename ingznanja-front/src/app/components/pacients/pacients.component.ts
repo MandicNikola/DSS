@@ -63,5 +63,13 @@ export class PacientsComponent implements OnInit {
     })
   }
 
+  pregled(id : number) : void {
+    this.pacientService.newPregled(id).subscribe(
+      idPregleda => {
+        this.router.navigate(['/pregled', idPregleda, id]);
+      }
+    );
+  }
 
+  
 }

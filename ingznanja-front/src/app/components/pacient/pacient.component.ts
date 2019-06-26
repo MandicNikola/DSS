@@ -29,6 +29,7 @@ export class PacientComponent implements OnInit {
   }
 
   addPacient() : void {
+    console.log(this.pacient);
     this.pacientService.addPacient(this.pacient).subscribe(
       data => {
         window.alert('Pacijent uspesno dodat!');

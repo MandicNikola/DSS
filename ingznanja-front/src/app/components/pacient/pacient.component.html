@@ -73,22 +73,14 @@
 
           <div class="form-group">
             <label for="porodicneBolesti">Porodicne bolest</label>
-            <select class="form-control" id="porodicneBolesti" multiple>
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
+            <select multiple class="form-control" [(ngModel)]="pacient.porodicneBolesti" name="porodicneBolesti" id="porodicneBolesti" multiple>
+              <option *ngFor="let bolest of bolesti">{{bolest.naziv}}</option>
             </select>
           </div>
           <div class="form-group">
             <label for="istorijaBolesti">Istorija bolesti</label>
-            <select multiple class="form-control" id="istorijaBolesti">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
+            <select multiple class="form-control" [(ngModel)]="pacient.istorijaBolesti" name="istorijaBolesti" id="istorijaBolesti">
+                <option *ngFor="let bolest of bolesti">{{bolest.naziv}}</option>
             </select>
           </div>
          

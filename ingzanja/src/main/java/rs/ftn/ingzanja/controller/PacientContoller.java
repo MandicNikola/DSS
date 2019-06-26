@@ -59,6 +59,7 @@ public class PacientContoller {
     public @ResponseBody
     Pacient addPacient(@RequestBody PacientDTO dto)
     {
+
         Pacient p = new Pacient(dto);
         List<Bolest> ib=new ArrayList<>();
         List<Bolest> pb=new ArrayList<>();

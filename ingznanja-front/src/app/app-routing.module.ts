@@ -10,7 +10,7 @@ import { PreventiveComponent } from './components/preventive/preventive.componen
 const routes : Routes = [
   {path: '', redirectTo: '/pacients', pathMatch: 'full'},
   {path: 'pacients', component: PacientsComponent},
-  {path: 'pregled/:id', component: PregledComponent},
+  {path: 'pregled/:id/:idPacienta', component: PregledComponent},
   {path: 'pacient', component: PacientComponent },
   {path: 'details/:id', component: PacientDetailsComponent },
   {path: 'preventive/:id/:idPacient', component: PreventiveComponent }
