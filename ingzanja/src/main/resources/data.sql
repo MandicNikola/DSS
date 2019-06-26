@@ -171,3 +171,27 @@ insert into terapija (id, naziv) values (78, 'fondaparinux');
 insert into terapija (id, naziv) values (79, 'isoproterenol');
 insert into terapija (id, naziv) values (80, 'mecamylamine');
 insert into terapija (id, naziv) values (81, 'ascorbic_acid');
+
+--dijagnostika
+insert into dijagnostika (id, naziv) values (1, 'cardiac_enzymes_measurement');
+insert into dijagnostika (id, naziv) values (2, 'intravenous_fluid_replacement');
+insert into dijagnostika (id, naziv) values (3, 'plain_x-ray');
+insert into dijagnostika (id, naziv) values (4, 'hematologic_tests');
+insert into dijagnostika (id, naziv) values (5, 'cardiac_stress_tests');
+insert into dijagnostika (id, naziv) values (6, 'cat_scan_of_head');
+insert into dijagnostika (id, naziv) values (7, 'glucose_measurement');
+insert into dijagnostika (id, naziv) values (8, 'echocardiography');
+insert into dijagnostika (id, naziv) values (9, 'other_diagnostic_procedures');
+insert into dijagnostika (id, naziv) values (10, 'lipid_panel');
+insert into dijagnostika (id, naziv) values (11, 'x-ray_computed_tomography');
+insert into dijagnostika (id, naziv) values (12, 'electrocardiogram');
+insert into dijagnostika (id, naziv) values (13, 'wound_care_management');
+insert into dijagnostika (id, naziv) values (14, 'electrolytes_panel');
+insert into dijagnostika (id, naziv) values (15, 'ultrasonography');
+insert into dijagnostika (id, naziv) values (16, 'diagnostic_cardiac_catheterization');
+insert into dijagnostika (id, naziv) values (17, 'other_therapeutic_procedures');
+insert into dijagnostika (id, naziv) values (18, 'cardiopulmonary_resuscitation');
+insert into dijagnostika (id, naziv) values (19, 'kidney_function_tests');
+insert into dijagnostika (id, naziv) values (20, 'radiographic_imaging_procedure');
+insert into dijagnostika (id, naziv) values (21, 'complete_physical_skin_exam_performed');
+insert into dijagnostika (id, naziv) values (22, 'complete_blood_count');

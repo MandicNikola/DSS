@@ -7,8 +7,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import rs.ftn.ingzanja.dto.PacientDTO;
 import rs.ftn.ingzanja.dto.PregledDTO;
+import rs.ftn.ingzanja.model.Bolest;
 import rs.ftn.ingzanja.model.Pacient;
 import rs.ftn.ingzanja.model.Pregled;
+import rs.ftn.ingzanja.service.BolestService;
 import rs.ftn.ingzanja.service.PacientService;
 import rs.ftn.ingzanja.service.PacientServiceImpl;
 
@@ -23,6 +25,9 @@ public class PacientContoller {
 
     @Autowired
     PacientServiceImpl service;
+
+    @Autowired
+    BolestService bolestService;
 
     @RequestMapping(value = "/test", method = RequestMethod.GET)
     public List<String> test() {
@@ -55,8 +60,37 @@ public class PacientContoller {
     Pacient addPacient(@RequestBody PacientDTO dto)
     {
         Pacient p = new Pacient(dto);
+        List<Bolest> ib=new ArrayList<>();
+        List<Bolest> pb=new ArrayList<>();
+
+        for(String s:dto.getIstorijaBolesti()){
+            Bolest b=bolestService.findByNaziv(s).get(0);
+            ib.add(b);
+        }
+
+        for(String s:dto.getPorodicneBolesti()){
+            Bolest b=bolestService.findByNaziv(s).get(0);
+            pb.add(b);
+        }
+        p.setPorodicneBolesti(pb);
+        p.setIstorijaBolesti(ib);
+
         service.savePacient(p);
         return p;
+    }
+
+    @RequestMapping(value = "/{id}",
+            method = RequestMethod.GET,
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public ResponseEntity<?> getPacijent(@PathVariable("id") Long id){
+        Pacient p=service.findPacientById(id);
+        if(p != null){
+            return new ResponseEntity<>(p,HttpStatus.OK);
+        }else{
+            return new ResponseEntity<>("Nema korisnika s tim id",HttpStatus.BAD_REQUEST);
+        }
+
     }
 
     @RequestMapping(value = "/pregledi/{id}",

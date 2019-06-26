@@ -10,4 +10,5 @@ import java.util.List;
 public interface BolestRepository extends JpaRepository<Bolest,Long> {
 
     List<Bolest> findAll();
+    List<Bolest> findByNaziv(String naziv);
 }

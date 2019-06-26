@@ -1,13 +1,13 @@
 package rs.ftn.ingzanja.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import net.bytebuddy.dynamic.loading.InjectionClassLoader;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
-@Table(name="terapija")
-public class Terapija {
+@Table(name="dijagnostika")
+public class Dijagnostika {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,11 +16,16 @@ public class Terapija {
     @Column(name="naziv")
     private String naziv;
 
-    @OneToOne(mappedBy = "terapija")
+    @OneToMany(cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY,
+            mappedBy = "dijagnostika")
+    @JsonIgnore
+    private List<PreventivniPregled> preventivniPregledi;
+
+    @OneToOne(mappedBy = "dijagnostika")
     @JsonIgnore
     private Pregled pregled;
 
-    public Terapija(){}
 
     public Pregled getPregled() {
         return pregled;
@@ -30,8 +35,16 @@ public class Terapija {
         this.pregled = pregled;
     }
 
-    public Terapija(String naziv) {
-        this.naziv = naziv;
+    public List<PreventivniPregled> getPreventivniPregledi() {
+        return preventivniPregledi;
+    }
+
+    public Dijagnostika(){
+
+    }
+
+    public void setPreventivniPregledi(List<PreventivniPregled> preventivniPregledi) {
+        this.preventivniPregledi = preventivniPregledi;
     }
 
     public Long getId() {

@@ -6,12 +6,11 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import rs.ftn.ingzanja.model.Bolest;
+import rs.ftn.ingzanja.model.Dijagnostika;
 import rs.ftn.ingzanja.model.Simptom;
 import rs.ftn.ingzanja.model.Terapija;
-import rs.ftn.ingzanja.service.BolestService;
-import rs.ftn.ingzanja.service.SimptomServiceImpl;
-import rs.ftn.ingzanja.service.SimtpomService;
-import rs.ftn.ingzanja.service.TerapijaService;
+import rs.ftn.ingzanja.repository.DijagnostikaRepository;
+import rs.ftn.ingzanja.service.*;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -33,6 +32,9 @@ public class SimptomsContoller {
 
     @Autowired
     TerapijaService terapijaService;
+
+    @Autowired
+    DijagnostikaService dijagnostikaService;
 
     @RequestMapping(value ="/all",
             produces = MediaType.APPLICATION_JSON_VALUE,
@@ -63,6 +65,14 @@ public class SimptomsContoller {
     )
     public ResponseEntity<?> allTerapije(){
         List<Terapija> ret=this.terapijaService.findAll();
+        return new ResponseEntity<>(ret, HttpStatus.OK);
+    }
+
+    @GetMapping(value="/dijagnostike",
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public ResponseEntity<?> allDijagnostike(){
+        List<Dijagnostika> ret=this.dijagnostikaService.findAll();
         return new ResponseEntity<>(ret, HttpStatus.OK);
     }
 

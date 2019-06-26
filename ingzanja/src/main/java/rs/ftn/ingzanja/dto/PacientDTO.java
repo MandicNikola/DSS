@@ -52,6 +52,61 @@ public class PacientDTO {
     }
 
 
+    public String getTelefon() {
+        return telefon;
+    }
+
+    public void setTelefon(String telefon) {
+        this.telefon = telefon;
+    }
+
+    public String getAdresa() {
+        return adresa;
+    }
+
+    public void setAdresa(String adresa) {
+        this.adresa = adresa;
+    }
+
+    public List<String> getPorodicneBolesti() {
+        return porodicneBolesti;
+    }
+
+    public void setPorodicneBolesti(List<String> porodicneBolesti) {
+        this.porodicneBolesti = porodicneBolesti;
+    }
+
+    public List<String> getIstorijaBolesti() {
+        return istorijaBolesti;
+    }
+
+    public void setIstorijaBolesti(List<String> istorijaBolesti) {
+        this.istorijaBolesti = istorijaBolesti;
+    }
+
+    public boolean isAlkohol() {
+        return alkohol;
+    }
+
+    public void setAlkohol(boolean alkohol) {
+        this.alkohol = alkohol;
+    }
+
+    public boolean isPusac() {
+        return pusac;
+    }
+
+    public void setPusac(boolean pusac) {
+        this.pusac = pusac;
+    }
+
+    public String getDebljina() {
+        return debljina;
+    }
+
+    public void setDebljina(String debljina) {
+        this.debljina = debljina;
+    }
 
     public Race getRasa() {
         return rasa;

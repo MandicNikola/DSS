@@ -7,4 +7,5 @@ import java.util.List;
 public interface BolestService {
 
     List<Bolest> findAll();
+    List<Bolest> findByNaziv(String naziv);
 }

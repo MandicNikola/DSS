@@ -1,12 +1,11 @@
 package rs.ftn.ingzanja.model;
 
 import org.codehaus.jackson.annotate.JsonIgnore;
+
 import rs.ftn.ingzanja.dto.PacientDTO;
 
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 @Entity
 public class Pacient {
@@ -35,6 +34,37 @@ public class Pacient {
     @Column(name="pol")
     private Pol pol;
 
+    @Column(name="telefon")
+    private String telefon;
+
+    @Column(name="adresa")
+    private String adresa;
+
+    @Column(name="alkohol")
+    private boolean alkohol;
+
+    @Column(name="pusac")
+    private boolean pusac;
+
+    @Column(name="debljina")
+    private String debljina;
+
+    @ManyToMany
+    @JoinTable(
+            name = "porodicneBolesti",
+            joinColumns = @JoinColumn(name = "id_pacijent"),
+            inverseJoinColumns = @JoinColumn(name = "id_bolest"))
+    private List<Bolest> porodicneBolesti = new ArrayList<>();
+
+
+    @ManyToMany
+    @JoinTable(
+            name = "istorijaBolesti",
+            joinColumns = @JoinColumn(name = "id_pacijent"),
+            inverseJoinColumns = @JoinColumn(name = "id_bolest"))
+    private List<Bolest> istorijaBolesti = new ArrayList<>();
+
+
     @OneToMany(
             cascade = CascadeType.ALL,
             fetch = FetchType.LAZY,
@@ -42,6 +72,72 @@ public class Pacient {
     )
     private Set<Pregled> pregledi = new HashSet<>();
 
+
+    @OneToMany(
+            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY,
+            mappedBy = "pacientPP"
+    )
+    @JsonIgnore
+    private List<PreventivniPregled> preventivniPregledi=new ArrayList<>();
+
+
+
+    public String getTelefon() {
+        return telefon;
+    }
+
+    public void setTelefon(String telefon) {
+        this.telefon = telefon;
+    }
+
+    public String getAdresa() {
+        return adresa;
+    }
+
+    public void setAdresa(String adresa) {
+        this.adresa = adresa;
+    }
+
+    public boolean isAlkohol() {
+        return alkohol;
+    }
+
+    public void setAlkohol(boolean alkohol) {
+        this.alkohol = alkohol;
+    }
+
+    public boolean isPusac() {
+        return pusac;
+    }
+
+    public void setPusac(boolean pusac) {
+        this.pusac = pusac;
+    }
+
+    public String getDebljina() {
+        return debljina;
+    }
+
+    public void setDebljina(String debljina) {
+        this.debljina = debljina;
+    }
+
+    public List<Bolest> getPorodicneBolesti() {
+        return porodicneBolesti;
+    }
+
+    public void setPorodicneBolesti(List<Bolest> porodicneBolesti) {
+        this.porodicneBolesti = porodicneBolesti;
+    }
+
+    public List<Bolest> getIstorijaBolesti() {
+        return istorijaBolesti;
+    }
+
+    public void setIstorijaBolesti(List<Bolest> istorijaBolesti) {
+        this.istorijaBolesti = istorijaBolesti;
+    }
 
     public Long getId() {
         return id;
@@ -116,6 +212,13 @@ public class Pacient {
         this.ime = pacient.getIme();
         this.JMBG = pacient.getJMBG();
         this.prezime = pacient.getPrezime();
+        this.telefon=pacient.getTelefon();
+        this.adresa=pacient.getAdresa();
+        this.debljina=pacient.getDebljina();
+        this.alkohol=pacient.isAlkohol();
+        this.pusac=pacient.isPusac();
+        this.pol=pacient.getPol();
+        this.rasa=pacient.getRasa();
     }
 
     @Override
