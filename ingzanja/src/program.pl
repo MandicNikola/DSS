@@ -15,10 +15,10 @@ disease_symptom_percent(heart_block, irregular_heartbeat, 8.0).
 
 test_for_disease(heart_block, electrocardiogram).
 test_for_disease(heart_block, radiographic_imaging_procedure).
-test_for_disease(heart_block, complete_blood_count_(cbc)).
-test_for_disease(heart_block, plain_x-ray_(x_ray)).
-test_for_disease(heart_block, glucose_measurement_(glucose_level)).
-test_for_disease(heart_block, cardiac_enzymes_measurement_(cardiac_enzymes_test)).
+test_for_disease(heart_block, complete_blood_count).
+test_for_disease(heart_block, plain_x-ray).
+test_for_disease(heart_block, glucose_measurement).
+test_for_disease(heart_block, cardiac_enzymes_measurement).
 test_for_disease(heart_block, intravenous_fluid_replacement).
 test_for_disease(heart_block, electrolytes_panel).
 
@@ -64,12 +64,12 @@ disease_symptom_percent(heart_attack, burning_chest_pain, 5.0).
 disease_symptom_percent(heart_attack, increased_heart_rate, 4.0).
 
 test_for_disease(heart_attack, electrocardiogram).
-test_for_disease(heart_attack, hematologic_tests_(blood_test)).
-test_for_disease(heart_attack, complete_blood_count_(cbc)).
+test_for_disease(heart_attack, hematologic_tests).
+test_for_disease(heart_attack, complete_blood_count).
 test_for_disease(heart_attack, radiographic_imaging_procedure).
-test_for_disease(heart_attack, plain_x-ray_(x_ray)).
-test_for_disease(heart_attack, cardiac_enzymes_measurement_(cardiac_enzymes_test)).
-test_for_disease(heart_attack, kidney_function_tests_(kidney_function_test)).
+test_for_disease(heart_attack, plain_x-ray).
+test_for_disease(heart_attack, cardiac_enzymes_measurement).
+test_for_disease(heart_attack, kidney_function_tests).
 test_for_disease(heart_attack, intravenous_fluid_replacement).
 
 treatment_for_disease(heart_attack, aspirin).
@@ -113,14 +113,14 @@ disease_symptom_percent(heart_failure, fluid_retention, 9.0).
 disease_symptom_percent(heart_failure, palpitations, 8.0).
 disease_symptom_percent(heart_failure, hurts_to_breath, 6.0).
 
-test_for_disease(heart_failure, hematologic_tests_(blood_test)).
+test_for_disease(heart_failure, hematologic_tests).
 test_for_disease(heart_failure, radiographic_imaging_procedure).
-test_for_disease(heart_failure, complete_blood_count_(cbc)).
+test_for_disease(heart_failure, complete_blood_count).
 test_for_disease(heart_failure, electrocardiogram).
-test_for_disease(heart_failure, plain_x-ray_(x_ray)).
-test_for_disease(heart_failure, glucose_measurement_(glucose_level)).
+test_for_disease(heart_failure, plain_x-ray).
+test_for_disease(heart_failure, glucose_measurement).
 test_for_disease(heart_failure, electrolytes_panel).
-test_for_disease(heart_failure, kidney_function_tests_(kidney_function_test)).
+test_for_disease(heart_failure, kidney_function_tests).
 
 treatment_for_disease(heart_failure, furosemide).
 treatment_for_disease(heart_failure, carvedilol).
@@ -164,13 +164,13 @@ disease_symptom_percent(heart_contusion, hip_stiffness_or_tightness, 4.0).
 disease_symptom_percent(heart_contusion, nailbiting, 4.0).
 
 test_for_disease(heart_contusion, radiographic_imaging_procedure).
-test_for_disease(heart_contusion, plain_x-ray_(x_ray)).
+test_for_disease(heart_contusion, plain_x-ray).
 test_for_disease(heart_contusion, wound_care_management).
-test_for_disease(heart_contusion, x-ray_computed_tomography_(scan_ct)).
+test_for_disease(heart_contusion, x-ray_computed_tomography).
 test_for_disease(heart_contusion, intravenous_fluid_replacement).
-test_for_disease(heart_contusion, cardiopulmonary_resuscitation_(cpr)).
-test_for_disease(heart_contusion, cat_scan_of_head_(head_ct)).
-test_for_disease(heart_contusion, cardiac_enzymes_measurement_(cardiac_enzymes_test)).
+test_for_disease(heart_contusion, cardiopulmonary_resuscitation).
+test_for_disease(heart_contusion, cat_scan_of_head).
+test_for_disease(heart_contusion, cardiac_enzymes_measurement).
 
 treatment_for_disease(heart_contusion, cortisone).
 treatment_for_disease(heart_contusion, zoledronic_acid).
@@ -212,12 +212,12 @@ disease_symptom_percent(increased_heart_rate, mouth_dryness, 5.0).
 disease_symptom_percent(increased_heart_rate, pallor, 5.0).
 
 test_for_disease(increased_heart_rate, electrocardiogram).
-test_for_disease(increased_heart_rate, hematologic_tests_(blood_test)).
-test_for_disease(increased_heart_rate, complete_blood_count_(cbc)).
+test_for_disease(increased_heart_rate, hematologic_tests).
+test_for_disease(increased_heart_rate, complete_blood_count).
 test_for_disease(increased_heart_rate, radiographic_imaging_procedure).
-test_for_disease(increased_heart_rate, plain_x-ray_(x_ray)).
-test_for_disease(increased_heart_rate, cardiac_enzymes_measurement_(cardiac_enzymes_test)).
-test_for_disease(increased_heart_rate, kidney_function_tests_(kidney_function_test)).
+test_for_disease(increased_heart_rate, plain_x-ray).
+test_for_disease(increased_heart_rate, cardiac_enzymes_measurement).
+test_for_disease(increased_heart_rate, kidney_function_tests).
 test_for_disease(increased_heart_rate, intravenous_fluid_replacement).
 
 treatment_for_disease(increased_heart_rate, diltiazem).
@@ -258,14 +258,14 @@ disease_symptom_percent(decreased_heart_rate, hurts_to_breath, 17.0).
 disease_symptom_percent(decreased_heart_rate, plugged_feeling_in_ear, 9.0).
 disease_symptom_percent(decreased_heart_rate, irregular_heartbeat, 9.0).
 
-test_for_disease(decreased_heart_rate, hematologic_tests_(blood_test)).
-test_for_disease(decreased_heart_rate, complete_blood_count_(cbc)).
+test_for_disease(decreased_heart_rate, hematologic_tests).
+test_for_disease(decreased_heart_rate, complete_blood_count).
 test_for_disease(decreased_heart_rate, radiographic_imaging_procedure).
 test_for_disease(decreased_heart_rate, electrocardiogram).
-test_for_disease(decreased_heart_rate, plain_x-ray_(x_ray)).
-test_for_disease(decreased_heart_rate, kidney_function_tests_(kidney_function_test)).
-test_for_disease(decreased_heart_rate, cardiac_enzymes_measurement_(cardiac_enzymes_test)).
-test_for_disease(decreased_heart_rate, glucose_measurement_(glucose_level)).
+test_for_disease(decreased_heart_rate, plain_x-ray).
+test_for_disease(decreased_heart_rate, kidney_function_tests).
+test_for_disease(decreased_heart_rate, cardiac_enzymes_measurement).
+test_for_disease(decreased_heart_rate, glucose_measurement).
 
 treatment_for_disease(decreased_heart_rate, atropine).
 treatment_for_disease(decreased_heart_rate, glucagon).
@@ -308,12 +308,12 @@ disease_symptom_percent(ischemic_heart_disease, increased_heart_rate, 5.0).
 disease_symptom_percent(ischemic_heart_disease, muscle_pain, 5.0).
 disease_symptom_percent(ischemic_heart_disease, throat_feels_tight, 3.0).
 
-test_for_disease(ischemic_heart_disease, hematologic_tests_(blood_test)).
+test_for_disease(ischemic_heart_disease, hematologic_tests).
 test_for_disease(ischemic_heart_disease, electrocardiogram).
-test_for_disease(ischemic_heart_disease, complete_blood_count_(cbc)).
-test_for_disease(ischemic_heart_disease, glucose_measurement_(glucose_level)).
+test_for_disease(ischemic_heart_disease, complete_blood_count).
+test_for_disease(ischemic_heart_disease, glucose_measurement).
 test_for_disease(ischemic_heart_disease, lipid_panel).
-test_for_disease(ischemic_heart_disease, ultrasonography_(ultrasound)).
+test_for_disease(ischemic_heart_disease, ultrasonography).
 test_for_disease(ischemic_heart_disease, electrolytes_panel).
 test_for_disease(ischemic_heart_disease, echocardiography).
 
@@ -360,12 +360,12 @@ disease_symptom_percent(congenital_heart_defect, hand_or_finger_stiffness_or_tig
 
 test_for_disease(congenital_heart_defect, radiographic_imaging_procedure).
 test_for_disease(congenital_heart_defect, electrocardiogram).
-test_for_disease(congenital_heart_defect, ultrasonography_(ultrasound)).
+test_for_disease(congenital_heart_defect, ultrasonography).
 test_for_disease(congenital_heart_defect, echocardiography).
-test_for_disease(congenital_heart_defect, other_diagnostic_procedures_(interview;_evaluation;_consultation)).
+test_for_disease(congenital_heart_defect, other_diagnostic_procedures).
 test_for_disease(congenital_heart_defect, cardiac_stress_tests).
 test_for_disease(congenital_heart_defect, other_therapeutic_procedures).
-test_for_disease(congenital_heart_defect, diagnostic_cardiac_catheterization;_coronary_arteriography).
+test_for_disease(congenital_heart_defect, diagnostic_cardiac_catheterization).
 
 treatment_for_disease(congenital_heart_defect, digoxin).
 treatment_for_disease(congenital_heart_defect, captopril).
@@ -408,20 +408,20 @@ disease_symptom_percent(hypertensive_heart_disease, leg_swelling, 8.0).
 disease_symptom_percent(hypertensive_heart_disease, fluid_retention, 8.0).
 disease_symptom_percent(hypertensive_heart_disease, recent_pregnancy, 4.0).
 
-test_for_disease(hypertensive_heart_disease, hematologic_tests_(blood_test)).
-test_for_disease(hypertensive_heart_disease, complete_blood_count_(cbc)).
+test_for_disease(hypertensive_heart_disease, hematologic_tests).
+test_for_disease(hypertensive_heart_disease, complete_blood_count).
 test_for_disease(hypertensive_heart_disease, electrocardiogram).
-test_for_disease(hypertensive_heart_disease, glucose_measurement_(glucose_level)).
+test_for_disease(hypertensive_heart_disease, glucose_measurement).
 test_for_disease(hypertensive_heart_disease, lipid_panel).
-test_for_disease(hypertensive_heart_disease, ultrasonography_(ultrasound)).
-test_for_disease(hypertensive_heart_disease, complete_physical_skin_exam_performed_(ml)).
+test_for_disease(hypertensive_heart_disease, ultrasonography).
+test_for_disease(hypertensive_heart_disease, complete_physical_skin_exam_performed).
 test_for_disease(hypertensive_heart_disease, electrolytes_panel).
 
 treatment_for_disease(hypertensive_heart_disease, amlodipine).
 treatment_for_disease(hypertensive_heart_disease, carvedilol).
 treatment_for_disease(hypertensive_heart_disease, isosorbide).
 treatment_for_disease(hypertensive_heart_disease, rosuvastatin).
-treatment_for_disease(hypertensive_heart_disease, valsartan.
+treatment_for_disease(hypertensive_heart_disease, valsartan).
 treatment_for_disease(hypertensive_heart_disease, digoxin).
 treatment_for_disease(hypertensive_heart_disease, diltiazem).
 treatment_for_disease(hypertensive_heart_disease, spironolactone).
@@ -441,6 +441,76 @@ yearRisk(0, hypertensive_heart_disease, 0.01).
 yearRisk(1, hypertensive_heart_disease, 0.5).
 yearRisk(2, hypertensive_heart_disease, 0.75).
 yearRisk(3, hypertensive_heart_disease, 3.1).
+
+alcoholRisk(1, heart_block, 1.1).
+alcoholRisk(1, heart_attack, 1.2).
+alcoholRisk(1, heart_failure, 1).
+alcoholRisk(1, heart_contusion, 1).
+alcoholRisk(1, increased_heart_rate, 1.3).
+alcoholRisk(1, decreased_heart_rate, 1).
+alcoholRisk(1, ischemic_heart_disease, 1).
+alcoholRisk(1, congenital_heart_defect, 1).
+alcoholRisk(1, hypertensive_heart_disease, 1.3).
+
+alcoholRisk(0, heart_block, 1).
+alcoholRisk(0, heart_attack, 1).
+alcoholRisk(0, heart_failure, 1).
+alcoholRisk(0, heart_contusion, 1).
+alcoholRisk(0, increased_heart_rate, 1).
+alcoholRisk(0, decreased_heart_rate, 1).
+alcoholRisk(0, ischemic_heart_disease, 1).
+alcoholRisk(0, congenital_heart_defect, 1).
+alcoholRisk(0, hypertensive_heart_disease, 1).
+
+smokeRisk(1, heart_block, 1.1).
+smokeRisk(1, heart_attack, 1.2).
+smokeRisk(1, heart_failure, 1).
+smokeRisk(1, heart_contusion, 1).
+smokeRisk(1, increased_heart_rate, 1.3).
+smokeRisk(1, decreased_heart_rate, 1).
+smokeRisk(1, ischemic_heart_disease, 1).
+smokeRisk(1, congenital_heart_defect, 1).
+smokeRisk(1, hypertensive_heart_disease, 1.5).
+
+smokeRisk(0, heart_block, 1).
+smokeRisk(0, heart_attack, 1).
+smokeRisk(0, heart_failure, 1).
+smokeRisk(0, heart_contusion, 1).
+smokeRisk(0, increased_heart_rate, 1).
+smokeRisk(0, decreased_heart_rate, 1).
+smokeRisk(0, ischemic_heart_disease, 1).
+smokeRisk(0, congenital_heart_defect, 1).
+smokeRisk(0, hypertensive_heart_disease, 1).
+
+weightRisk(0, heart_block, 1).
+weightRisk(0, heart_attack, 1.1).
+weightRisk(0, heart_failure, 1).
+weightRisk(0, heart_contusion, 1).
+weightRisk(0, increased_heart_rate, 1).
+weightRisk(0, decreased_heart_rate, 1.1).
+weightRisk(0, ischemic_heart_disease, 1).
+weightRisk(0, congenital_heart_defect, 1).
+weightRisk(0, hypertensive_heart_disease, 1).
+
+weightRisk(1, heart_block, 1).
+weightRisk(1, heart_attack, 1.2).
+weightRisk(1, heart_failure, 1.05).
+weightRisk(1, heart_contusion, 1).
+weightRisk(1, increased_heart_rate, 1.1).
+weightRisk(1, decreased_heart_rate, 1.1).
+weightRisk(1, ischemic_heart_disease, 1).
+weightRisk(1, congenital_heart_defect, 1).
+weightRisk(1, hypertensive_heart_disease, 1.1).
+
+weightRisk(2, heart_block, 1.3).
+weightRisk(2, heart_attack, 1.4).
+weightRisk(2, heart_failure, 1.2).
+weightRisk(2, heart_contusion, 1).
+weightRisk(2, increased_heart_rate, 1,4).
+weightRisk(2, decreased_heart_rate, 1.1).
+weightRisk(2, ischemic_heart_disease, 1.1).
+weightRisk(2, congenital_heart_defect, 1.1).
+weightRisk(2, hypertensive_heart_disease, 1.5).
 
 symptom(abnormal_involuntary_movements).
 symptom(apnea).
@@ -470,7 +540,7 @@ symptom(hurts_to_breath).
 symptom(increased_heart_rate).
 symptom(infant_feeding_problem).
 symptom(insomnia).
-symptom(irregular_belly_button_).
+symptom(irregular_belly_button).
 symptom(irregular_heartbeat).
 symptom(itchy_eyelid).
 symptom(lack_of_growth).
@@ -496,28 +566,28 @@ symptom(weakness).
 symptom(weight_gain).
 symptom(wrist_weakness).
 
-test(cardiac_enzymes_measurement_(cardiac_enzymes_test)).
+test(cardiac_enzymes_measurement).
 test(intravenous_fluid_replacement).
-test(plain_x-ray_(x_ray)).
-test(hematologic_tests_(blood_test)).
+test(plain_x-ray).
+test(hematologic_tests).
 test(cardiac_stress_tests).
-test(cat_scan_of_head_(head_ct)).
-test(glucose_measurement_(glucose_level)).
+test(cat_scan_of_head).
+test(glucose_measurement).
 test(echocardiography).
-test(other_diagnostic_procedures_(interview;_evaluation;_consultation)).
+test(other_diagnostic_procedures).
 test(lipid_panel).
-test(x-ray_computed_tomography_(scan_ct)).
+test(x-ray_computed_tomography).
 test(electrocardiogram).
 test(wound_care_management).
 test(electrolytes_panel).
-test(ultrasonography_(ultrasound)).
-test(diagnostic_cardiac_catheterization;_coronary_arteriography).
+test(ultrasonography).
+test(diagnostic_cardiac_catheterization).
 test(other_therapeutic_procedures).
-test(cardiopulmonary_resuscitation_(cpr)).
-test(kidney_function_tests_(kidney_function_test)).
+test(cardiopulmonary_resuscitation).
+test(kidney_function_tests).
 test(radiographic_imaging_procedure).
-test(complete_physical_skin_exam_performed_(ml)).
-test(complete_blood_count_(cbc)).
+test(complete_physical_skin_exam_performed).
+test(complete_blood_count).
 
 treatment(polyethylene_glycol_3350).
 treatment(clopidogrel).
@@ -558,7 +628,7 @@ treatment(digoxin).
 treatment(chlorothiazide).
 treatment(lutein).
 treatment(dopamine).
-treatment(dutasteride)).
+treatment(dutasteride).
 treatment(flecainide).
 treatment(tenecteplase).
 treatment(dorzolamide_ophthalmic).
@@ -613,6 +683,8 @@ sum_percent([H|T],B,SUM):-disease_symptom_percent(B,H,P),sum_percent(T,B,SUM2),S
 final_sum(GOD,POL,RACE,S,B,SUM):-sum_percent(S,B,SUM1),sexRisk(POL,B,SK),raceRisk(RACE,B,RK),yearRisk(GOD,B,YK), SUM is SUM1*SK*RK*YK.
 
 koef(GOD,POL,RACE,B,KFF):-sexRisk(POL,B,SK),raceRisk(RACE,B,RK),yearRisk(GOD,B,YK), KFF is SK*RK*YK.
+
+koefPrev(GOD,POL,RACE,WEIGHT,ALK,SMOKE,B,KFP):- koef(GOD,POL,RACE,B,KFF), smokeRisk(SMOKE,B,KS),weightRisk(WEIGHT,B,KW), alcoholRisk(ALK,B,KA),  KFP is (KS*KW*KA*KFF).
 
 pozitivni([],[]).
 pozitivni([H|T], L) :- H >= 0, pozitivni(T,L1), append([H],L1,L).

@@ -8,20 +8,25 @@ import java.util.Objects;
 import java.util.Set;
 
 @Entity
+@Table(name="pregled")
 public class Pregled {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name="terapija")
-    private String terapija;
 
-    @Column(name="dijagnoza")
-    private String dijagnoza;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "dijagnostika_id", referencedColumnName = "id")
+    private Dijagnostika dijagnostika;
 
-    @Column(name="lek")
-    private String lek;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "dijagnoza_id", referencedColumnName = "id")
+    private Bolest dijagnoza;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "terapija_id", referencedColumnName = "id")
+    private Terapija terapija;
 
     @ManyToMany
     @JoinTable(
@@ -36,6 +41,8 @@ public class Pregled {
     private Pacient pacient;
 
 
+    public Pregled() { super(); }
+
     public Long getId() {
         return id;
     }
@@ -44,20 +51,28 @@ public class Pregled {
         this.id = id;
     }
 
-    public String getTerapija() {
-        return terapija;
+    public Dijagnostika getDijagnostika() {
+        return dijagnostika;
     }
 
-    public void setTerapija(String terapija) {
-        this.terapija = terapija;
+    public void setDijagnostika(Dijagnostika dijagnostika) {
+        this.dijagnostika = dijagnostika;
     }
 
-    public String getDijagnoza() {
+    public Bolest getDijagnoza() {
         return dijagnoza;
     }
 
-    public void setDijagnoza(String dijagnoza) {
+    public void setDijagnoza(Bolest dijagnoza) {
         this.dijagnoza = dijagnoza;
+    }
+
+    public Terapija getTerapija() {
+        return terapija;
+    }
+
+    public void setTerapija(Terapija terapija) {
+        this.terapija = terapija;
     }
 
     public Set<Simptom> getSimptoms() {
@@ -75,15 +90,6 @@ public class Pregled {
     public void setPacient(Pacient pacient) {
         this.pacient = pacient;
     }
-
-    public String getLek() {
-        return lek;
-    }
-
-    public void setLek(String lek) {
-        this.lek = lek;
-    }
-    public Pregled() { super(); }
 
     @Override
     public boolean equals(Object o) {

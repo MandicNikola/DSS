@@ -17,4 +17,9 @@ public class BolestServiceImpl implements BolestService {
     public List<Bolest> findAll() {
         return this.bolestRepository.findAll();
     }
+
+    @Override
+    public List<Bolest> findByNaziv(String naziv){
+        return bolestRepository.findByNaziv(naziv);
+    }
 }
