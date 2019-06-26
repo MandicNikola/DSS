@@ -81,6 +81,7 @@ public class PregledController {
             }else{
                 pregledDTO.setTerapija(pregled.getTerapija().getNaziv());
             }
+            pregledDTO.setComplete(pregled.isComplet());
 
             pregledDTOList.add(pregledDTO);
         }
