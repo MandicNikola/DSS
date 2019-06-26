@@ -37,8 +37,9 @@ export class PacientDetailsComponent implements OnInit {
     );
 
     this.pacientService.getPreventivniPregledi(this.idPacient).subscribe(
-      data => this.preventivniPregledi = data
-    );
+      data => {this.preventivniPregledi = data
+      console.log(this.preventivniPregledi);
+      });
 
   }
 

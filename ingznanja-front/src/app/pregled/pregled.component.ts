@@ -15,6 +15,9 @@ export class PregledComponent implements OnInit {
   pregled : Pregled = new Pregled(); 
   simptoms : string[] = [];
   selectMode : string = 'RULE';
+
+  dijagnostike : string[] = [];
+
   id : string;
   constructor(private pacientService : PacientService, private route: ActivatedRoute) {
     pacientService.getSimptomsAll().subscribe(data => {

@@ -1,9 +1,9 @@
 
-
+<button type="button" (click)="back()" class="btn btn-link">Back</button>
 <div class="container">
     
   <div class="set">
-    <button type="button" (click)="back()" class="btn btn-link">Back</button>
+   
   <div class="row">
       
       <div class="col-4">
@@ -51,13 +51,31 @@
             </thead>
             <tbody>
                 <tr *ngFor="let pregled of pregledi; trackBy: trackByIdentity;">
-                  
+                  <td>{{pregled.id}}</td>
+                  <td>{{pregled.dijagnostika}}</td>
+                  <td>{{pregled.dijagnoza}}</td>
+                  <td>{{pregled.terapija}}</td>
                 </tr>
             </tbody>
       </table>
     </div>
     <div class="col-4">
       <h4 style="margin-top:20px;  margin-bottom: 10px;">Lista preventivnih pregleda:</h4>
+      <table class="table table-hover">
+          <thead>
+              <tr>
+                <th>#ID</th>
+                <th scope="col">Dijagnostika</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let pregled of preventivniPregledi; trackBy: trackByIdentity;">
+                  <td>{{pregled.id}}</td>
+                  <td>{{pregled.dijagnostika}}</td>
+                </tr>
+            </tbody>
+      </table>
+    
     </div>
   </div>
 

@@ -29,6 +29,7 @@ export class PreventiveComponent implements OnInit {
     this.pacientService.getPrevPregledDiagnostic(this.idPregled).subscribe(
       data => {
         this.dijagnostika = data;
+        this.preventivniPregled.dijagnostika = data[0];
       }
     );
     this.pacientService.getPacient(this.idPacient).subscribe(
