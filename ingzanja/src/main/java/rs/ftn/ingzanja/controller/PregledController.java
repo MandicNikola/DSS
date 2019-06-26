@@ -63,7 +63,26 @@ public class PregledController {
         Set<Pregled> pregledi=pacient.getPregledi();
         List<PregledDTO> pregledDTOList=new ArrayList<>();
         for(Pregled pregled:pregledi){
-            pregledDTOList.add(new PregledDTO(pregled));
+            PregledDTO pregledDTO=new PregledDTO();
+            if(pregled.getDijagnoza()== null){
+                pregledDTO.setDijagnoza("");
+            }else{
+                pregledDTO.setDijagnoza(pregled.getDijagnoza().getNaziv());
+            }
+
+            if(pregled.getDijagnoza()== null){
+                pregledDTO.setDijagnostika("");
+            }else{
+                pregledDTO.setDijagnostika(pregled.getDijagnostika().getNaziv());
+            }
+
+            if(pregled.getTerapija()== null){
+                pregledDTO.setTerapija("");
+            }else{
+                pregledDTO.setTerapija(pregled.getTerapija().getNaziv());
+            }
+
+            pregledDTOList.add(pregledDTO);
         }
 
         return new ResponseEntity<>(pregledDTOList,HttpStatus.OK);

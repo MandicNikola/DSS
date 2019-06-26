@@ -67,7 +67,13 @@ public class PreventivniPregledController {
         List<PreventivniPregledDTO> preventivniPregledDTOS=new ArrayList<>();
 
         for(PreventivniPregled preventivniPregled:preventivniPregledi){
-            preventivniPregledDTOS.add(new PreventivniPregledDTO(preventivniPregled));
+            PreventivniPregledDTO preventivniPregledDTO=new PreventivniPregledDTO();
+            if(preventivniPregled.getDijagnostika() ==null){
+                preventivniPregledDTO.setDijagnostika("");
+            }else{
+                preventivniPregledDTO.setDijagnostika(preventivniPregled.getDijagnostika().getNaziv());
+            }
+            preventivniPregledDTOS.add(preventivniPregledDTO);
         }
 
         return new ResponseEntity<>(preventivniPregledDTOS,HttpStatus.OK);
