@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import rs.ftn.ingzanja.dto.BolestDTO;
 import rs.ftn.ingzanja.dto.PregledDTO;
 import rs.ftn.ingzanja.model.*;
+import rs.ftn.ingzanja.service.DijagnostikaService;
 import rs.ftn.ingzanja.service.PacientService;
 import rs.ftn.ingzanja.service.PregledServiceImpl;
 
@@ -26,6 +27,7 @@ public class PregledController {
 
     @Autowired
     PacientService pacientService;
+
 
     /**
      * Api za novi pregled prvi put
@@ -263,20 +265,22 @@ public class PregledController {
      * @return retList - ArrayList-a potencijalnih DIJAGNOSTIKA
      */
     @RequestMapping(
-            value = "/diagnoseTerapyProlog/{id}",
+            value = "/getDijagnostike",
             method = RequestMethod.POST,
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public ResponseEntity<ArrayList<String>> diagnoseTerapyProlog(@RequestBody BolestDTO obj, @PathVariable("id")Long id)
+    public ResponseEntity<?> getDijagnostike(@RequestBody BolestDTO obj)
     {
-        Pregled p = service.findPregledById(id);
-       // p.setDijagnoza(obj.getBolest());
-        service.savePregled(p,p.getPacient().getId());
+
+        if(obj.getBolest().equals("")){
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
 
         String bolest = obj.getBolest();
         bolest.toLowerCase();
         bolest=bolest.replace(' ','_');
+
         //prolog logika vracas mi string mogucih terapija
         ArrayList<String> retList = new ArrayList<>();
         JIPEngine engine=new JIPEngine();
@@ -306,7 +310,7 @@ public class PregledController {
         }
 
 
-        return new ResponseEntity<ArrayList<String>>(retList, HttpStatus.OK);
+        return new ResponseEntity<>(retList, HttpStatus.OK);
     }
 
     /**
@@ -315,12 +319,18 @@ public class PregledController {
      * @return retList - ArrayList-a potencijalnih terapija
      */
     @RequestMapping(
-            value = "/lek",
+            value = "/getTerapije",
             method = RequestMethod.POST,
             consumes = MediaType.APPLICATION_JSON_VALUE
     )
-    public ResponseEntity<ArrayList<String>> lekZaBolest(@RequestBody BolestDTO obj)
+    public ResponseEntity<?> getTerapije
+    (@RequestBody BolestDTO obj)
     {
+
+        if(obj.getBolest().equals("")){
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+
         String bolest = obj.getBolest();
         bolest.toLowerCase();
         bolest=bolest.replace(' ','_');
@@ -353,7 +363,7 @@ public class PregledController {
             e.printStackTrace();
         }
 
-        return new ResponseEntity<ArrayList<String>>(retList, HttpStatus.OK);
+        return new ResponseEntity<>(retList, HttpStatus.OK);
     }
 
 
@@ -376,5 +386,66 @@ public class PregledController {
             retLista.add(simptom.getNaziv());
 
         return new ResponseEntity<>(retLista,HttpStatus.OK);
+    }
+
+    @RequestMapping(
+            value = "/setDijagnostika",
+            method = RequestMethod.POST,
+            consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public ResponseEntity<?> setDijagnostika(@RequestBody PregledDTO body){
+
+        Pregled pregled = service.findPregledById(body.getId());
+        if(pregled == null)
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+
+
+
+        Pacient pacient = pregled.getPacient();
+        service.saveDijagnostika(body.getDijagnostika(),pregled);
+
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+
+    @RequestMapping(
+            value = "/setTerapija",
+            method = RequestMethod.POST,
+            consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public ResponseEntity<?> setTerapija(@RequestBody PregledDTO body){
+
+        Pregled pregled = service.findPregledById(body.getId());
+        if(pregled == null)
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+
+
+
+        Pacient pacient = pregled.getPacient();
+        service.saveTerapiju(body.getTerapija(),pregled);
+
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @RequestMapping(
+            value = "/setDijagnoza",
+            method = RequestMethod.POST,
+            consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public ResponseEntity<?> setDijagnoza(@RequestBody PregledDTO body){
+
+        Pregled pregled = service.findPregledById(body.getId());
+        if(pregled == null)
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+
+
+
+        Pacient pacient = pregled.getPacient();
+        service.saveDijagnozu(body.getDijagnoza(),pregled);
+
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }
