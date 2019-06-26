@@ -100,6 +100,7 @@ public class PregledServiceImpl implements PregledService {
     public void saveTerapiju(String terapija, Pregled pregled) {
         Terapija terapija1=terapijaRepository.findOneByNaziv(terapija);
         pregled.setTerapija(terapija1);
+        pregled.setComplet(true);
         repository.save(pregled);
     }
 }
