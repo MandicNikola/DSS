@@ -12,9 +12,7 @@ public class PregledDTO {
 
     private String dijagnoza;
 
-    private String lek;
-
-
+    private String dijagnostika;
 
     private ArrayList<String> simptoms;
 
@@ -22,6 +20,23 @@ public class PregledDTO {
 
     public PregledDTO(){
         super();
+    }
+
+    public PregledDTO(Pregled pregled){
+        this.id=pregled.getId();
+        this.dijagnostika=pregled.getDijagnostika().getNaziv();
+        this.dijagnoza=pregled.getDijagnoza().getNaziv();
+        this.terapija=pregled.getTerapija().getNaziv();
+
+    }
+
+
+    public String getDijagnostika() {
+        return dijagnostika;
+    }
+
+    public void setDijagnostika(String dijagnostika) {
+        this.dijagnostika = dijagnostika;
     }
 
     public Long getId() {
@@ -64,11 +79,11 @@ public class PregledDTO {
         this.pacientId = pacientId;
     }
 
-    public String getLek() {
-        return lek;
-    }
-
-    public void setLek(String lek) {
-        this.lek = lek;
-    }
+//    public String getLek() {
+//        return lek;
+//    }
+//
+//    public void setLek(String lek) {
+//        this.lek = lek;
+//    }
 }

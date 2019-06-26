@@ -12,6 +12,7 @@ import rs.ftn.ingzanja.dto.PreventivniPregledDTO;
 import rs.ftn.ingzanja.model.*;
 import rs.ftn.ingzanja.service.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -28,6 +29,9 @@ public class PreventivniPregledController {
 
     @Autowired
     DijagnostikaServiceImpl dijagnostikaService;
+
+    @Autowired
+    PacientService pacientService;
 
     /**
      * Api za novi preventivni pregled ako vec ne postoji
@@ -47,6 +51,26 @@ public class PreventivniPregledController {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 
         return new ResponseEntity<>(retVal, HttpStatus.OK);
+    }
+
+    @RequestMapping(
+            value = "/getAll/{id}",
+            method = RequestMethod.GET
+    )
+    public ResponseEntity<?> getAll(@PathVariable("id") Long id)
+    {
+        Pacient pacient=pacientService.findPacientById(id);
+        if(pacient == null){
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+        List<PreventivniPregled> preventivniPregledi=pacient.getPreventivniPregledi();
+        List<PreventivniPregledDTO> preventivniPregledDTOS=new ArrayList<>();
+
+        for(PreventivniPregled preventivniPregled:preventivniPregledi){
+            preventivniPregledDTOS.add(new PreventivniPregledDTO(preventivniPregled));
+        }
+
+        return new ResponseEntity<>(preventivniPregledDTOS,HttpStatus.OK);
     }
 
 

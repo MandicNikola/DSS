@@ -19,6 +19,11 @@ public class PreventivniPregledDTO {
 
     }
 
+    public PreventivniPregledDTO(PreventivniPregled preventivniPregled){
+        this.id=preventivniPregled.getId();
+        this.dijagnostika=preventivniPregled.getDijagnostika().getNaziv();
+    }
+
     public Long getId() {
         return id;
     }

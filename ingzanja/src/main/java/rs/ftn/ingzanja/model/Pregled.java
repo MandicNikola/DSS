@@ -37,8 +37,19 @@ public class Pregled {
     @ManyToOne(fetch = FetchType.EAGER)
     private Pacient pacient;
 
+//    @Column(name="isComplet",columnDefinition = "boolean default false")
+//    private boolean isComplet;
+
 
     public Pregled() { super(); }
+
+//    public boolean isComplet() {
+//        return isComplet;
+//    }
+//
+//    public void setComplet(boolean complet) {
+//        isComplet = complet;
+//    }
 
     public Long getId() {
         return id;
