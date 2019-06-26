@@ -1,5 +1,8 @@
-insert into pacient (id, ime, prezime, godiste, jmbg, rasa, pol) values (1, 'Nikola', 'Nikolic', 1995, '0605995172650', 'white', 'male');
-insert into pacient (id, ime, prezime, godiste, jmbg, rasa, pol) values (2, 'Sima', 'Simic', 1996, '0612995172650', 'white', 'male');
+
+insert into pacient (id, ime, prezime, godiste, jmbg, rasa, pol,telefon,adresa,alkohol,pusac,debljina)
+values (1, 'Nikola', 'Nikolic', 1995, '0605995172650', 'white', 'male','0618454545','Tekeljina 25',false, true, 'fat');
+insert into pacient (id, ime, prezime, godiste, jmbg, rasa, pol,telefon,adresa,alkohol,pusac,debljina) values
+(2, 'Sima', 'Simic', 1996, '0612995172650', 'white', 'male','0607545612','BB 25',true, true, 'skinny');
 
 insert into pregled (id,pacient_id) values (1,1);
 insert into pregled (id,pacient_id) values (2,1);
@@ -195,3 +198,16 @@ insert into dijagnostika (id, naziv) values (19, 'kidney_function_tests');
 insert into dijagnostika (id, naziv) values (20, 'radiographic_imaging_procedure');
 insert into dijagnostika (id, naziv) values (21, 'complete_physical_skin_exam_performed');
 insert into dijagnostika (id, naziv) values (22, 'complete_blood_count');
+
+
+insert into porodicne_bolesti (id_pacijent,id_bolest) values (1,1);
+insert into porodicne_bolesti (id_pacijent,id_bolest) values (1,2);
+insert into porodicne_bolesti (id_pacijent,id_bolest) values (1,3);
+
+insert into porodicne_bolesti (id_pacijent,id_bolest) values (2,1);
+insert into porodicne_bolesti (id_pacijent,id_bolest) values (2,5);
+insert into porodicne_bolesti (id_pacijent,id_bolest) values (2,7);
+
+
+insert into istorija_bolesti (id_pacijent,id_bolest) values (1,1);
+insert into istorija_bolesti (id_pacijent,id_bolest) values (2,5);

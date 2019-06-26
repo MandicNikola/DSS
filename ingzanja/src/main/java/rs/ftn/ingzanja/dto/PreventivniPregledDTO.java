@@ -2,6 +2,9 @@ package rs.ftn.ingzanja.dto;
 
 import rs.ftn.ingzanja.model.PreventivniPregled;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class PreventivniPregledDTO {
 
     private Long id;
@@ -9,6 +12,8 @@ public class PreventivniPregledDTO {
     private String dijagnostika;
 
     private Long pacientId;
+
+    private List<String> mogucaDijagnostika = new ArrayList<>();
 
     public PreventivniPregledDTO(){
 
@@ -36,5 +41,14 @@ public class PreventivniPregledDTO {
 
     public void setPacientId(Long pacientId) {
         this.pacientId = pacientId;
+    }
+
+
+    public List<String> getMogucaDijagnostika() {
+        return mogucaDijagnostika;
+    }
+
+    public void setMogucaDijagnostika(List<String> mogucaDijagnostika) {
+        this.mogucaDijagnostika = mogucaDijagnostika;
     }
 }

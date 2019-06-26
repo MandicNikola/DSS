@@ -43,6 +43,7 @@ public class PregledController {
         return new ResponseEntity<>(retVal, HttpStatus.OK);
     }
 
+
     /**
      *
      * @param id - identifier from pregled to save
@@ -61,15 +62,16 @@ public class PregledController {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 
         if(body.getDijagnoza() != null)
-            p.setDijagnoza(body.getDijagnoza());
+          //  p.setDijagnoza(body.getDijagnoza());
 
         if(body.getTerapija() != null)
-            p.setTerapija(body.getTerapija());
+         //   p.setTerapija(body.getTerapija());
 
         service.savePregledOnly(p,body);
 
         return new ResponseEntity<>(id, HttpStatus.OK);
     }
+
 
     /**
      * Metoda za dijagnozu potencijalnih bolesti, pomocu prologa
@@ -217,7 +219,7 @@ public class PregledController {
     public ResponseEntity<ArrayList<String>> diagnoseTerapyProlog(@RequestBody BolestDTO obj, @PathVariable("id")Long id)
     {
         Pregled p = service.findPregledById(id);
-        p.setDijagnoza(obj.getBolest());
+       // p.setDijagnoza(obj.getBolest());
         service.savePregled(p,p.getPacient().getId());
 
         String bolest = obj.getBolest();

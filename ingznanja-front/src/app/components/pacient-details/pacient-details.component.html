@@ -19,30 +19,21 @@
   <div class="row">
     <div class="col-4">
         <ul class="list-group">
-            <li class="list-group-item">Cras justo odio</li>
-            <li class="list-group-item">Dapibus ac facilisis in</li>
-            <li class="list-group-item">Morbi leo risus</li>
-            <li class="list-group-item">Porta ac consectetur ac</li>
-            <li class="list-group-item">Vestibulum at eros</li>
-            
+          <li class="list-group-item"><span>Ime:</span> {{pacient.ime}}</li>
+          <li class="list-group-item"><span>Prezime:</span> {{pacient.prezime}}</li>
+          <li class="list-group-item"><span>Godiste:</span>{{pacient.godiste}}.</li>
+          <li class="list-group-item"><span>JMBG:</span>{{pacient.jmbg}}</li>
+          <li class="list-group-item"><span>Pol:</span>{{pacient.pol}}</li>
+        </ul>
+    </div>
+    <div class="col-4">
+        <ul class="list-group">Istorija Bolesti:
+            <li *ngFor="let bolest of pacient.istorijaBolesti" class="list-group-item">{{bolest}}</li>
           </ul>
     </div>
     <div class="col-4">
         <ul class="list-group">
-            <li class="list-group-item">Cras justo odio</li>
-            <li class="list-group-item">Dapibus ac facilisis in</li>
-            <li class="list-group-item">Morbi leo risus</li>
-            <li class="list-group-item">Porta ac consectetur ac</li>
-            <li class="list-group-item">Vestibulum at eros</li>
-          </ul>
-    </div>
-    <div class="col-4">
-        <ul class="list-group">
-            <li class="list-group-item">Cras justo odio</li>
-            <li class="list-group-item">Dapibus ac facilisis in</li>
-            <li class="list-group-item">Morbi leo risus</li>
-            <li class="list-group-item">Porta ac consectetur ac</li>
-            <li class="list-group-item">Vestibulum at eros</li>
+          <li *ngFor="let bolest of pacient.porodicneBolesti" class="list-group-item">{{bolest}}</li>
           </ul>
     </div>
   </div>

@@ -83,12 +83,36 @@ public class PacientContoller {
             method = RequestMethod.GET,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public ResponseEntity<?> getPacijent(@PathVariable("id") Long id){
+    public ResponseEntity<PacientDTO> getPacijent(@PathVariable("id") Long id){
         Pacient p=service.findPacientById(id);
+
+        PacientDTO pacientDTO = new PacientDTO();
+
         if(p != null){
-            return new ResponseEntity<>(p,HttpStatus.OK);
+            pacientDTO.setIme(p.getIme());
+            pacientDTO.setPol(p.getPol());
+            pacientDTO.setAdresa(p.getAdresa());
+            pacientDTO.setJMBG(p.getJMBG());
+            pacientDTO.setPrezime(p.getPrezime());
+            pacientDTO.setId(p.getId());
+            pacientDTO.setGodiste(p.getGodiste());
+            List<String> istorijaBolesti = new ArrayList<>();
+            for(Bolest bolest : p.getIstorijaBolesti())
+            {
+                istorijaBolesti.add(bolest.getNaziv());
+            }
+            pacientDTO.setIstorijaBolesti(istorijaBolesti);
+
+            List<String> istorijaBolestiPorodica = new ArrayList<>();
+            for(Bolest bolest : p.getPorodicneBolesti())
+            {
+                istorijaBolestiPorodica.add(bolest.getNaziv());
+            }
+            pacientDTO.setPorodicneBolesti(istorijaBolestiPorodica);
+
+            return new ResponseEntity<PacientDTO>(pacientDTO,HttpStatus.OK);
         }else{
-            return new ResponseEntity<>("Nema korisnika s tim id",HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
 
     }
@@ -107,9 +131,9 @@ public class PacientContoller {
             for(Pregled pregled : p.getPregledi()){
                 PregledDTO dto = new PregledDTO();
                 Long idPregleda = pregled.getId();
-                String terapija = pregled.getTerapija();
-                String dijagnoza = pregled.getDijagnoza();
-                String lek = pregled.getLek();
+                String terapija = pregled.getTerapija().getNaziv();
+                String dijagnoza = pregled.getDijagnoza().getNaziv();
+               // String lek = pregled.getLek();
                 if(terapija == null)
                     dto.setTerapija("");
                 else
@@ -118,10 +142,10 @@ public class PacientContoller {
                     dto.setDijagnoza("");
                 else
                     dto.setDijagnoza(dijagnoza);
-                if(lek == null)
-                    dto.setLek("");
-                else
-                    dto.setLek(lek);
+               // if(lek == null)
+                 //   dto.setLek("");
+             //   else
+              //      dto.setLek(lek);
 
                 dto.setId(idPregleda);
                 dto.setPacientId(id);

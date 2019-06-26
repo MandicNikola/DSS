@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import net.bytebuddy.dynamic.loading.InjectionClassLoader;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name="terapija")
@@ -16,18 +18,18 @@ public class Terapija {
     @Column(name="naziv")
     private String naziv;
 
-    @OneToOne(mappedBy = "terapija")
+    @OneToMany(mappedBy = "terapija")
     @JsonIgnore
-    private Pregled pregled;
+    private List<Pregled> pregledi = new ArrayList<>();
 
     public Terapija(){}
 
-    public Pregled getPregled() {
-        return pregled;
+    public List<Pregled> getPregledi() {
+        return pregledi;
     }
 
-    public void setPregled(Pregled pregled) {
-        this.pregled = pregled;
+    public void setPregled(List<Pregled> pregledi) {
+        this.pregledi = pregledi;
     }
 
     public Terapija(String naziv) {

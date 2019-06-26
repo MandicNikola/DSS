@@ -3,6 +3,7 @@ package rs.ftn.ingzanja.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -22,17 +23,19 @@ public class Dijagnostika {
     @JsonIgnore
     private List<PreventivniPregled> preventivniPregledi;
 
-    @OneToOne(mappedBy = "dijagnostika")
+    @OneToMany(mappedBy = "dijagnostika")
     @JsonIgnore
-    private Pregled pregled;
+    private List<Pregled> pregledi = new ArrayList<>();
 
 
-    public Pregled getPregled() {
-        return pregled;
+
+    public List<Pregled> getPregledi() {
+        return pregledi;
     }
 
-    public void setPregled(Pregled pregled) {
-        this.pregled = pregled;
+    @JsonIgnore
+    public void setPregledi(List<Pregled> pregledi) {
+        this.pregledi = pregledi;
     }
 
     public List<PreventivniPregled> getPreventivniPregledi() {

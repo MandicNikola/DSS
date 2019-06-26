@@ -1,3 +1,45 @@
-<p>
-  preventive works!
-</p>
+<div class="set">
+    <div id="pacientContainer">
+        <h3> Preventivna dijagnostika:</h3>
+        <form>
+
+            <div class="row">
+                <label for="dijagnostika">Odaberite mogucu dijagnostiku:</label>
+                <select [(ngModel)]="preventivniPregled.dijagnostika" name="dijagnostika" class="form-control"
+                    id="dijagnostika">
+                    <option *ngFor="let dija of dijagnostika">{{dija}}</option>
+                </select>
+            </div>
+            <div class="row" style="margin-top: 20px;">
+                <div class="col-4">
+                    <ul class="list-group">
+                        <li style="background-color: gray" class="list-group-item"><span>Informacije:</span></li>
+                        <li class="list-group-item"><span>Ime:</span> {{pacient.ime}}</li>
+                        <li class="list-group-item"><span>Prezime:</span> {{pacient.prezime}}</li>
+                        <li class="list-group-item"><span>Godiste:</span>{{pacient.godiste}}.</li>
+                        <li class="list-group-item"><span>JMBG:</span>{{pacient.jmbg}}</li>
+                        <li class="list-group-item"><span>Pol:</span>{{pacient.pol}}</li>
+                    </ul>
+                </div>
+                <div class="col-4">
+                    <ul class="list-group">
+                            <li style="background-color: gray" class="list-group-item"><span>Istorija bolesti:</span></li>
+                        <li *ngFor="let bolest of pacient.istorijaBolesti" class="list-group-item">{{bolest}}</li>
+                    </ul>
+                </div>
+                <div class="col-4">
+                    <ul class="list-group">
+                            <li style="background-color: gray" class="list-group-item"><span>Porodicne bolesti:</span></li>
+                        <li *ngFor="let bolest of pacient.porodicneBolesti" class="list-group-item">{{bolest}}</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row" style="margin-top: 20px;">
+                <button (click)="preventive()"  type="button" class="btn btn-primary">Finish</button>
+            </div>
+
+        </form>
+    </div>
+
+
+</div>

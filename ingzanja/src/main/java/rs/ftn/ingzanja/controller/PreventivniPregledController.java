@@ -10,9 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import rs.ftn.ingzanja.dto.PreventivniPregledDTO;
 import rs.ftn.ingzanja.model.*;
-import rs.ftn.ingzanja.service.DijagnostikaService;
-import rs.ftn.ingzanja.service.PregledServiceImpl;
-import rs.ftn.ingzanja.service.PreventivniPregledService;
+import rs.ftn.ingzanja.service.*;
 
 import java.util.List;
 
@@ -26,10 +24,10 @@ public class PreventivniPregledController {
     PregledServiceImpl service;
 
     @Autowired
-    PreventivniPregledService preventivniPregledService;
+    PreventivniPregledServiceImpl preventivniPregledService;
 
     @Autowired
-    DijagnostikaService dijagnostikaService;
+    DijagnostikaServiceImpl dijagnostikaService;
 
     /**
      * Api za novi preventivni pregled ako vec ne postoji
@@ -67,7 +65,6 @@ public class PreventivniPregledController {
             if(pp==null){
                 return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
             }
-
             List<String> ret=preventivniPregledService.prevDiagnostics(pp);
 
             return new ResponseEntity<>(ret, HttpStatus.OK);

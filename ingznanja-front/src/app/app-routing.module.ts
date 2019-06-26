@@ -13,7 +13,7 @@ const routes : Routes = [
   {path: 'pregled/:id', component: PregledComponent},
   {path: 'pacient', component: PacientComponent },
   {path: 'details/:id', component: PacientDetailsComponent },
-  {path: 'preventive/:id', component: PreventiveComponent }
+  {path: 'preventive/:id/:idPacient', component: PreventiveComponent }
 ];
 
 

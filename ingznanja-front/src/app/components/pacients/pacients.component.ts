@@ -58,7 +58,9 @@ export class PacientsComponent implements OnInit {
   }
 
   preventivniPregled(id : number) : void {
-    this.router.navigate(['/preventive', id]);
+    this.pacientService.noviPreventivniPregled(id).subscribe( idPr => {
+      this.router.navigate(['/preventive',idPr , id]);
+    })
   }
 
 

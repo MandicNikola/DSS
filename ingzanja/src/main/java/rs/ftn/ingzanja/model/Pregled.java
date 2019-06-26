@@ -16,16 +16,13 @@ public class Pregled {
     private Long id;
 
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "dijagnostika_id", referencedColumnName = "id")
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Dijagnostika dijagnostika;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "dijagnoza_id", referencedColumnName = "id")
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Bolest dijagnoza;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "terapija_id", referencedColumnName = "id")
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Terapija terapija;
 
     @ManyToMany
@@ -71,6 +68,7 @@ public class Pregled {
         return terapija;
     }
 
+    @JsonIgnore
     public void setTerapija(Terapija terapija) {
         this.terapija = terapija;
     }

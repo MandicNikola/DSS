@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { Pacient } from '../model/Pacient';
-
+import { PreventivniPregled } from '../model/PreventivniPregled';
 
 
 const ROOT_URL = '//localhost:8081/api';
@@ -60,6 +60,18 @@ export class PacientService {
 
   getPacient(id : number) : Observable<any> {
     return this.http.get(`${ROOT_URL}/pacients/${id}`);
+  }
+
+  noviPreventivniPregled(id: number) : Observable<any> {
+    return this.http.post(`${ROOT_URL}/preventivni/new/${id}`,{});
+  }
+
+  getPrevPregledDiagnostic(id: number) : Observable<any> {
+    return this.http.get(`${ROOT_URL}/preventivni/prevdiagnostic/${id}`);
+  }
+
+  savePreventivniPregled(idPregleda: number, body: PreventivniPregled) : Observable<any> {
+    return this.http.post(`${ROOT_URL}/preventivni/save/${idPregleda}`, body);
   }
 
 }

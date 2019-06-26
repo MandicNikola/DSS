@@ -21,7 +21,10 @@ export class PacientDetailsComponent implements OnInit {
   ) { 
     this.idPacient = parseInt(this.route.snapshot.paramMap.get("id"));
     this.pacientService.getPacient(this.idPacient).subscribe(
-      data => this.pacient = data
+      data => {
+        this.pacient = data
+        console.log(data);
+      }
     );
   }
 

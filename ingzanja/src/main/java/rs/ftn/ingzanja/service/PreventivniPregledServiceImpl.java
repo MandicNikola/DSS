@@ -47,7 +47,7 @@ public class PreventivniPregledServiceImpl implements PreventivniPregledService 
 
     @Override
     public PreventivniPregled findPreventivniPregledById(Long id) {
-        return null;
+        return preventivniPregledRepository.findOneById(id);
     }
 
     @Override
