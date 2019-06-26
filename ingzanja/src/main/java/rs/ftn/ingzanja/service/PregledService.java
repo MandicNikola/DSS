@@ -14,5 +14,8 @@ public interface PregledService {
     Long savePregled(Pregled p, Long id);
     Pregled findPregledById(Long id);
     void saveSimptoms(List<String> simptoms,Pregled pregled);
+    void saveDijagnostika(String dijagnostika,Pregled pregled);
+    void saveDijagnozu(String dijagnoza, Pregled pregled);
+    void saveTerapiju(String terapija,Pregled pregled);
 
 }

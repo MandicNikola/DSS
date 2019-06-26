@@ -9,4 +9,5 @@ import java.util.List;
 public interface TerapijaRepository extends JpaRepository<Terapija,Long> {
 
     List<Terapija> findAll();
+    Terapija findOneByNaziv(String naziv);
 }

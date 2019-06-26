@@ -3,12 +3,8 @@ package rs.ftn.ingzanja.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import rs.ftn.ingzanja.dto.PregledDTO;
-import rs.ftn.ingzanja.model.Pacient;
-import rs.ftn.ingzanja.model.Pregled;
-import rs.ftn.ingzanja.model.Simptom;
-import rs.ftn.ingzanja.repository.PacientRepository;
-import rs.ftn.ingzanja.repository.PregledRepository;
-import rs.ftn.ingzanja.repository.SymptomsRepository;
+import rs.ftn.ingzanja.model.*;
+import rs.ftn.ingzanja.repository.*;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -26,6 +22,15 @@ public class PregledServiceImpl implements PregledService {
 
     @Autowired
     SymptomsRepository symptomRepo;
+
+    @Autowired
+    DijagnostikaRepository dijagnostikaRepository;
+
+    @Autowired
+    BolestRepository bolestRepository;
+
+    @Autowired
+    TerapijaRepository terapijaRepository;
 
     @Override
     public void savePregledOnly(Pregled p, PregledDTO body) {
@@ -72,6 +77,29 @@ public class PregledServiceImpl implements PregledService {
             pregled.setSimptoms(simptoms1);
         }
 
+        repository.save(pregled);
+    }
+
+    @Override
+    public void saveDijagnostika(String dijagnostika, Pregled pregled) {
+
+        Dijagnostika dijagnostika1=dijagnostikaRepository.findOneByNaziv(dijagnostika);
+        pregled.setDijagnostika(dijagnostika1);
+        repository.save(pregled);
+    }
+
+    @Override
+    public void saveDijagnozu(String dijagnoza, Pregled pregled) {
+        Bolest bolest=bolestRepository.findOneByNaziv(dijagnoza);
+        pregled.setDijagnoza(bolest);
+        repository.save(pregled);
+
+    }
+
+    @Override
+    public void saveTerapiju(String terapija, Pregled pregled) {
+        Terapija terapija1=terapijaRepository.findOneByNaziv(terapija);
+        pregled.setTerapija(terapija1);
         repository.save(pregled);
     }
 }

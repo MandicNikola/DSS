@@ -12,4 +12,5 @@ public interface DijagnostikaRepository extends JpaRepository<Dijagnostika,Long>
 
     List<Dijagnostika> findByNaziv(String naziv);
 
+    Dijagnostika findOneByNaziv(String naziv);
 }
