@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import rs.ftn.ingzanja.dto.BolestDTO;
 import rs.ftn.ingzanja.dto.PregledDTO;
 import rs.ftn.ingzanja.model.*;
+import rs.ftn.ingzanja.service.PacientService;
 import rs.ftn.ingzanja.service.PregledServiceImpl;
 
 import java.util.*;
@@ -22,6 +23,9 @@ public class PregledController {
 
     @Autowired
     PregledServiceImpl service;
+
+    @Autowired
+    PacientService pacientService;
 
     /**
      * Api za novi pregled prvi put
@@ -41,6 +45,26 @@ public class PregledController {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 
         return new ResponseEntity<>(retVal, HttpStatus.OK);
+    }
+
+    @RequestMapping(
+            value = "/getAll/{id}",
+            method = RequestMethod.GET
+    )
+    public ResponseEntity<?> getAll(@PathVariable("id") Long id)
+    {
+        Pacient pacient=pacientService.findPacientById(id);
+        if(pacient == null){
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+
+        Set<Pregled> pregledi=pacient.getPregledi();
+        List<PregledDTO> pregledDTOList=new ArrayList<>();
+        for(Pregled pregled:pregledi){
+            pregledDTOList.add(new PregledDTO(pregled));
+        }
+
+        return new ResponseEntity<>(pregledDTOList,HttpStatus.OK);
     }
 
 
@@ -75,22 +99,20 @@ public class PregledController {
 
     /**
      * Metoda za dijagnozu potencijalnih bolesti, pomocu prologa
-     * @param id - pregleda za koji se vrsi dijagnoza
+     * @RequestBody sadrzi id pregleda i niz simptoma
      * @return retVal - ArrayList-a potencijalnih bolesti
      */
     @RequestMapping(
-            value = "diagnoseProlog/{id}",
+            value = "diagnoseProlog",
             method = RequestMethod.POST,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public ResponseEntity<ArrayList<String>> diagnoseProlog(@PathVariable("id") Long id)
+    public ResponseEntity<ArrayList<String>> diagnoseProlog(@RequestBody PregledDTO body)
     {
 
-        Pregled p = service.findPregledById(id);
+        Pregled p = service.findPregledById(body.getId());
         if(p == null)
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-
-
 
         Pacient pacient = p.getPacient();
 

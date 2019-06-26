@@ -82,6 +82,13 @@ public class Pacient {
     private List<PreventivniPregled> preventivniPregledi=new ArrayList<>();
 
 
+    public List<PreventivniPregled> getPreventivniPregledi() {
+        return preventivniPregledi;
+    }
+
+    public void setPreventivniPregledi(List<PreventivniPregled> preventivniPregledi) {
+        this.preventivniPregledi = preventivniPregledi;
+    }
 
     public String getTelefon() {
         return telefon;
