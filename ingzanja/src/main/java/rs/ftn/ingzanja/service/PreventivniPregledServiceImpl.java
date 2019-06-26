@@ -126,9 +126,9 @@ public class PreventivniPregledServiceImpl implements PreventivniPregledService 
             katGod=3;
         }
 
-        if(debljina.equals("mrsav")){
+        if(debljina.equals("skinny")){
             katWeight=0;
-        }else if(debljina.equals("normalan")){
+        }else if(debljina.equals("normal")){
             katWeight=1;
         }else{
             katWeight=3;
