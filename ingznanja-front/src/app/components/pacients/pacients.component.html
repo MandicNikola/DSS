@@ -9,6 +9,7 @@
           <th scope="col"><input class="form-control" name="filterGodiste" (input)="filter()"  [(ngModel)]="filterGodiste"  type="number" placeholder="Godiste " min="1950"></th>
           <th scope="col"></th>
           <th scope="col"></th>
+          <th scope="col"></th>
         </tr>
       </thead>
       <tbody>
@@ -19,6 +20,7 @@
           <td>{{pacient.godiste}}.</td>
           <td><button type="button" class="btn btn-primary btn-sm" routerLink="/pregled/{{pacient.id}}"  (click)="noviPregled(pacient.id)">Pregled</button></td>
           <td><button type="button" class="btn btn-info btn-sm" (click)="onDetailsClick(pacient.id)">Detalji</button></td>
+          <td><button type="button" class="btn btn-info btn-sm" (click)="preventivniPregled(pacient.id)">Preventivni pregled</button></td>
           </tr>
       </tbody>
 </table>

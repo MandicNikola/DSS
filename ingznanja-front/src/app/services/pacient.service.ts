@@ -58,4 +58,8 @@ export class PacientService {
     return this.http.post(`${ROOT_URL}/pacients/add`,body);
   }
 
+  getPacient(id : number) : Observable<any> {
+    return this.http.get(`${ROOT_URL}/pacients/${id}`);
+  }
+
 }

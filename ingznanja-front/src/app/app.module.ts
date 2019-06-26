@@ -11,6 +11,7 @@ import { PregledComponent } from './pregled/pregled.component';
 import { PacientsComponent } from './components/pacients/pacients.component';
 import { PacientComponent } from './components/pacient/pacient.component';
 import { PacientDetailsComponent } from './components/pacient-details/pacient-details.component';
+import { PreventiveComponent } from './components/preventive/preventive.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { PacientDetailsComponent } from './components/pacient-details/pacient-de
     PregledComponent,
     PacientsComponent,
     PacientComponent,
-    PacientDetailsComponent
+    PacientDetailsComponent,
+    PreventiveComponent
   ],
   imports: [
     BrowserModule,

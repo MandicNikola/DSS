@@ -20,10 +20,16 @@ export class PacientDetailsComponent implements OnInit {
     private route: ActivatedRoute
   ) { 
     this.idPacient = parseInt(this.route.snapshot.paramMap.get("id"));
-    
+    this.pacientService.getPacient(this.idPacient).subscribe(
+      data => this.pacient = data
+    );
   }
 
   ngOnInit() {
+  }
+
+  back() : void {
+    this.router.navigate(['/pacients']);
   }
 
 }

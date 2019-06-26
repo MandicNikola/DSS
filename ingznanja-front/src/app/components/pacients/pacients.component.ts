@@ -53,6 +53,13 @@ export class PacientsComponent implements OnInit {
 
   trackByIdentity = (index: number, item: Pacient) : number => (item.id);
 
+  onDetailsClick(id : number) : void {
+    this.router.navigate(['/details',id]);
+  }
+
+  preventivniPregled(id : number) : void {
+    this.router.navigate(['/preventive', id]);
+  }
 
 
 }
