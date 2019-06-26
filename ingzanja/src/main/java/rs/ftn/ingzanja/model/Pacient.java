@@ -23,7 +23,7 @@ public class Pacient {
     @Column(name="godiste", nullable = false)
     private int godiste;
 
-    @Column(name = "JMBG", nullable = false)
+    @Column(name = "JMBG")
     private String JMBG;
 
     @Enumerated(EnumType.STRING)

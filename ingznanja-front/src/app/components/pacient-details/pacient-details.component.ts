@@ -3,6 +3,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { PacientService } from '../../services/pacient.service';
 
 import { Pacient } from '../../model/Pacient';
+import { Pregled } from '../../model/Pregled';
+import { PreventivniPregled } from '../../model/PreventivniPregled';
 
 @Component({
   selector: 'app-pacient-details',
@@ -13,6 +15,10 @@ export class PacientDetailsComponent implements OnInit {
 
   idPacient : number;
   pacient : Pacient = new Pacient();
+
+  preventivniPregledi : Array<PreventivniPregled> = [];
+  pregledi : Array<Pregled> = [];
+
 
   constructor(
     private pacientService : PacientService,
@@ -26,6 +32,14 @@ export class PacientDetailsComponent implements OnInit {
         console.log(data);
       }
     );
+    this.pacientService.getPregledi(this.idPacient).subscribe(
+      data => this.pregledi = data
+    );
+
+    this.pacientService.getPreventivniPregledi(this.idPacient).subscribe(
+      data => this.preventivniPregledi = data
+    );
+
   }
 
   ngOnInit() {
@@ -34,5 +48,7 @@ export class PacientDetailsComponent implements OnInit {
   back() : void {
     this.router.navigate(['/pacients']);
   }
+
+  trackByIdentity = (index: number, item: Pregled) : number => (item.id); 
 
 }

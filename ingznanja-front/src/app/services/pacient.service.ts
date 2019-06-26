@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 
 import { Pacient } from '../model/Pacient';
 import { PreventivniPregled } from '../model/PreventivniPregled';
-
+import { Pregled } from '../model/Pregled';
 
 const ROOT_URL = '//localhost:8081/api';
 
@@ -19,16 +19,10 @@ export class PacientService {
     return this.http.get(`${ROOT_URL}/pacients/all`);
   }
 
-  getPregledi(id : number) : Observable<any> {
-    return this.http.get(`${ROOT_URL}/pacients/pregledi/${id}`);
-  }
+  
 
   getSimptoms(id : number) : Observable<any> {
     return this.http.get(`${ROOT_URL}/pregled/simptoms/${id}`);
-  }
-
-  diagnose(id : number) : Observable<any> {
-    return this.http.post(`${ROOT_URL}/pregled/diagnoseProlog/${id}`, {});
   }
 
   getTerapies(id: number, diagnose: string) : Observable<any>
@@ -73,5 +67,22 @@ export class PacientService {
   savePreventivniPregled(idPregleda: number, body: PreventivniPregled) : Observable<any> {
     return this.http.post(`${ROOT_URL}/preventivni/save/${idPregleda}`, body);
   }
+
+  newPregled(idPacienta : number) : Observable<any> {
+    return this.http.post(`${ROOT_URL}/pregled/new/${idPacienta}`, {});
+  } 
+
+  diagnose(body : Pregled) : Observable<any> {
+    return this.http.post(`${ROOT_URL}/pregled/diagnoseProlog`, body);
+  }
+
+  getPregledi(id: number) : Observable<any> { 
+    return this.http.get(`${ROOT_URL}/pregled/getAll/${id}`);
+  }
+
+  getPreventivniPregledi(id: number) : Observable<any> { 
+    return this.http.get(`${ROOT_URL}/preventivni/getAll/${id}`);
+  }
+
 
 }

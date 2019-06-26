@@ -27,7 +27,7 @@
         </ul>
     </div>
     <div class="col-4">
-        <ul class="list-group">Istorija Bolesti:
+        <ul class="list-group">
             <li *ngFor="let bolest of pacient.istorijaBolesti" class="list-group-item">{{bolest}}</li>
           </ul>
     </div>
@@ -37,5 +37,29 @@
           </ul>
     </div>
   </div>
+  <div class="row">
+    <div class="col-8">
+      <h4 style="margin-top:20px; margin-bottom: 10px;">Lista pregleda:</h4>
+      <table class="table table-hover">
+          <thead>
+              <tr>
+                <th>#ID</th>
+                <th scope="col">Dijagnostika</th>
+                <th scope="col">Dijagnoza</th>
+                <th scope="col">Terapija</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let pregled of pregledi; trackBy: trackByIdentity;">
+                  
+                </tr>
+            </tbody>
+      </table>
+    </div>
+    <div class="col-4">
+      <h4 style="margin-top:20px;  margin-bottom: 10px;">Lista preventivnih pregleda:</h4>
+    </div>
+  </div>
+
   </div>
 </div>

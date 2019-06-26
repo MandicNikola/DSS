@@ -97,12 +97,14 @@ export class MainComponent implements OnInit {
     });
   }
 
+  /*
   diagnoseClick(id : number) : void {
     this.pacientService.diagnose(id).subscribe(data =>{
       this.diagnoses = data;
       this.showDiagnoses = true;
     });
   }
+  */
 
   noviPregled(id : number) : void {
   }
