@@ -120,10 +120,37 @@ public class PregledController {
         Race rasa = pacient.getRasa();
         Pol pol = pacient.getPol();
         int godiste = pacient.getGodiste();
+        String debljina=pacient.getDebljina();
+        boolean smoke=pacient.isPusac();
+        boolean alc=pacient.isAlkohol();
         godiste=2019-godiste;
         String rasaS;
         String polS;
         int katGod;
+        int katWeight;
+        int katAlc;
+        int katSmoke;
+
+
+        if(debljina.equals("skinny")){
+            katWeight=0;
+        }else if(debljina.equals("normal")){
+            katWeight=1;
+        }else{
+            katWeight=3;
+        }
+
+        if(alc){
+            katAlc=1;
+        }else{
+            katAlc=0;
+        }
+
+        if(smoke){
+            katSmoke=1;
+        }else{
+            katSmoke=0;
+        }
 
         if(pol.equals(Pol.male)){
             polS="male";
@@ -153,14 +180,15 @@ public class PregledController {
 //        String polS="male";
 //        int katGod=3;
         ArrayList<String> simptomi = new ArrayList<>();
+        simptomi=body.getSimptoms();
 
-        for(Simptom s : p.getSimptoms())
-        {
-            String a=s.getNaziv();
-            a.toLowerCase();
-            a=a.replace(' ','_');
-            simptomi.add(a);
-        }
+//        for(Simptom s : p.getSimptoms())
+//        {
+//            String a=s.getNaziv();
+//            a.toLowerCase();
+//            a=a.replace(' ','_');
+//            simptomi.add(a);
+//        }
         //pripremljeni simptomi i sve
 //        simptomi.add("sharp_chest_pain");
 //        simptomi.add("shortness_of_breath");
@@ -222,6 +250,8 @@ public class PregledController {
         for(BolestVrednost bv:bovre){
             retLista.add(bv.getBolest());
         }
+
+        service.saveSimptoms(simptomi,p);
 
         return new ResponseEntity<>(retLista, HttpStatus.OK);
     }

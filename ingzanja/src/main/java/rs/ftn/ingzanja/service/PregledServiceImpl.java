@@ -10,6 +10,7 @@ import rs.ftn.ingzanja.repository.PacientRepository;
 import rs.ftn.ingzanja.repository.PregledRepository;
 import rs.ftn.ingzanja.repository.SymptomsRepository;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -56,5 +57,21 @@ public class PregledServiceImpl implements PregledService {
     @Override
     public Pregled findPregledById(Long id) {
         return repository.findOneById(id);
+    }
+
+    @Override
+    public void saveSimptoms(List<String> simptoms, Pregled pregled) {
+        Set<Simptom> simptoms1=new HashSet<>();
+        if(simptoms.size() != 0){
+            for(String s: simptoms){
+                Simptom simptom=symptomRepo.findOneByNaziv(s);
+                if(simptom != null){
+                    simptoms1.add(simptom);
+                }
+            }
+            pregled.setSimptoms(simptoms1);
+        }
+
+        repository.save(pregled);
     }
 }
