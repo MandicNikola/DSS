@@ -55,7 +55,7 @@
                   <td>{{pregled.dijagnostika}}</td>
                   <td>{{pregled.dijagnoza}}</td>
                   <td>{{pregled.terapija}}</td>
-                  <td><button *ngIf="pregled.complete"  class="btn btn-success" (click)="finish(pregled.id)">Zavrsi</button></td>
+                  <td><button *ngIf="!pregled.complete"  class="btn btn-success" (click)="finish(pregled.id)">Zavrsi</button></td>
                 </tr>
             </tbody>
       </table>

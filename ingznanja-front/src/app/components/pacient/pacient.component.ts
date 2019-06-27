@@ -40,5 +40,9 @@ export class PacientComponent implements OnInit {
     );
   }
 
+  back() : void {
+    this.router.navigate(['/pacients']);
+  }
+
 
 }

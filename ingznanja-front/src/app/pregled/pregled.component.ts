@@ -74,4 +74,8 @@ export class PregledComponent implements OnInit {
 
   }
 
+  back() : void {
+    this.router.navigate(['/pacients']);
+  }
+
 }

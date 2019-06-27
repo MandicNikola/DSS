@@ -20,11 +20,11 @@ public class Dijagnostika {
     @OneToMany(cascade = CascadeType.ALL,
             fetch = FetchType.LAZY,
             mappedBy = "dijagnostika")
-    @JsonIgnore
+
     private List<PreventivniPregled> preventivniPregledi;
 
     @OneToMany(mappedBy = "dijagnostika")
-    @JsonIgnore
+
     private List<Pregled> pregledi = new ArrayList<>();
 
 
@@ -45,7 +45,7 @@ public class Dijagnostika {
     public Dijagnostika(){
 
     }
-
+    @JsonIgnore
     public void setPreventivniPregledi(List<PreventivniPregled> preventivniPregledi) {
         this.preventivniPregledi = preventivniPregledi;
     }

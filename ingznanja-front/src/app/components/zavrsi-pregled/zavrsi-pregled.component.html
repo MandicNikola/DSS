@@ -16,7 +16,7 @@
               <option *ngFor="let terpija of terapije">{{terpija}}</option>
           </select>
         </div>
-        <button type="button" (click)="finish()" class="btn btn-success">Finish</button>
+        <button *ngIf="showTerapije"  type="button" (click)="finish()" class="btn btn-success">Finish</button>
 
       </form>
   </div>

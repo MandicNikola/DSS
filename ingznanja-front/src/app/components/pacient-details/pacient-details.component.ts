@@ -53,6 +53,10 @@ export class PacientDetailsComponent implements OnInit {
     this.router.navigate(['/pacients']);
   }
 
+  finish(id: number) {
+    this.router.navigate(['/zavrsiPregled', id]);
+  }
+
   trackByIdentity = (index: number, item: Pregled) : number => (item.id); 
 
 }

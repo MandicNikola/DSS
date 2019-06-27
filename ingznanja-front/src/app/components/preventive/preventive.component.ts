@@ -50,4 +50,8 @@ export class PreventiveComponent implements OnInit {
     
   }
 
+  back() : void {
+    this.router.navigate(['/pacients']);  
+  }
+
 }

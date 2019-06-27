@@ -58,7 +58,7 @@ export class ZavrsiPregledComponent implements OnInit {
     pregled.terapija = this.selectedTerapija;
     this.pacientService.setTerapija(pregled).subscribe(
       terapije => {
-        this.router.navigate['/pacients'];
+        this.router.navigate(['/pacients']);
       }
     );
   }

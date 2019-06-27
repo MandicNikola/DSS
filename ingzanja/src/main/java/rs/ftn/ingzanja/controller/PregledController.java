@@ -60,17 +60,22 @@ public class PregledController {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
 
+
+
         Set<Pregled> pregledi=pacient.getPregledi();
         List<PregledDTO> pregledDTOList=new ArrayList<>();
         for(Pregled pregled:pregledi){
             PregledDTO pregledDTO=new PregledDTO();
+
+            pregledDTO.setId(pregled.getId());
+
             if(pregled.getDijagnoza()== null){
                 pregledDTO.setDijagnoza("");
             }else{
                 pregledDTO.setDijagnoza(pregled.getDijagnoza().getNaziv());
             }
 
-            if(pregled.getDijagnoza()== null){
+            if(pregled.getDijagnostika()== null){
                 pregledDTO.setDijagnostika("");
             }else{
                 pregledDTO.setDijagnostika(pregled.getDijagnostika().getNaziv());

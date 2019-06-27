@@ -34,7 +34,7 @@ public class Pregled {
     private
     Set<Simptom> simptoms = new HashSet<>();
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER, cascade= CascadeType.ALL)
     private Pacient pacient;
 
     @Column(name="isComplet",columnDefinition = "boolean default false")
