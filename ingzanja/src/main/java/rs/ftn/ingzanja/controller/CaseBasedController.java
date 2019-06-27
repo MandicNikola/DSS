@@ -4,11 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import rs.ftn.ingzanja.model.Pol;
 import rs.ftn.ingzanja.repository.PacientRepository;
@@ -23,6 +19,7 @@ import rs.ftn.ingzanja.dto.CaseBasedInfo;
 
 @RestController
 @RequestMapping(value="api/caseBased")
+@CrossOrigin(origins = "http://localhost:4200")
 public class CaseBasedController {
 
 
@@ -43,7 +40,7 @@ public class CaseBasedController {
     public List<CBRDTO> getNajboljiSlucaj( @RequestBody CaseBasedInfo cb){
 
 
-        Pregled pregled = pregledRepository.findById(cb.getiDPregleda()).get();
+        Pregled pregled = pregledRepository.findById(cb.getIdPregleda()).get();
         CBRModel cbr = new CBRModel();
 
 

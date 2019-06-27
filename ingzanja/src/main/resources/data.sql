@@ -1,4 +1,4 @@
-
+/*
 insert into pacient (id, ime, prezime, godiste, jmbg, rasa, pol,telefon,adresa,alkohol,pusac,debljina)
 values (1, 'Nikola', 'Nikolic', 1995, '0605995172650', 'white', 'male','0618454545','Tekeljina 25',false, true, 'fat');
 insert into pacient (id, ime, prezime, godiste, jmbg, rasa, pol,telefon,adresa,alkohol,pusac,debljina) values
@@ -8,7 +8,6 @@ insert into pacient (id, ime, prezime, godiste, jmbg, rasa, pol,telefon,adresa,a
 insert into pacient (id, ime, prezime, godiste, jmbg, rasa, pol,telefon,adresa,alkohol,pusac,debljina) values
 (4, 'Ana', 'Anic', 1965, '1206965172750', 'white', 'female','0601255456','Nova 12',false , false, 'fat');
 
-/*
 insert into pregled (id,pacient_id) values (1,1);
 insert into pregled (id,pacient_id) values (2,1);
 insert into pregled (id,pacient_id) values (3,2);
@@ -30,7 +29,6 @@ insert into pregled_simptomi(pregled_id, simptom_id) values (4,16);
 insert into pregled_simptomi(pregled_id, simptom_id) values (4,1);
 
 
-*/
 
 insert into simptom (naziv) values  ('abnormal_involuntary_movements');
 insert into simptom (naziv) values  ('apnea');
@@ -216,3 +214,6 @@ insert into porodicne_bolesti (id_pacijent,id_bolest) values (2,7);
 
 insert into istorija_bolesti (id_pacijent,id_bolest) values (1,1);
 insert into istorija_bolesti (id_pacijent,id_bolest) values (2,5);
+
+
+ */

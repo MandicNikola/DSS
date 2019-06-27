@@ -23,8 +23,11 @@ import ucm.gaia.jcolibri.util.FileIO;
 
 public class CsvConnector implements Connector {
 
-    @Autowired
-    PregledRepository pregledRepository;
+    private  List<Pregled> pregledi  = new ArrayList<>();
+
+    public CsvConnector(List<Pregled> pregleds){
+        this.pregledi = pregleds;
+    }
 
     @Override
     public Collection<CBRCase> retrieveAllCases() {
@@ -32,8 +35,11 @@ public class CsvConnector implements Connector {
 
 
         LinkedList<CBRCase> cases = new LinkedList<CBRCase>();
-        List<Pregled> pregledi = pregledRepository.findAll(); //ucitava preglede iz baze
-        List<CBRModel> modeli = new ArrayList<CBRModel>();
+        System.out.println(pregledi.size());
+
+        List<CBRModel> modeli = new ArrayList<>();
+
+
 
         //popuni cbrmodel pregledima iz baze
         for(Pregled p : pregledi) {
