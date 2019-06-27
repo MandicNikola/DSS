@@ -5,11 +5,13 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.io.IOException;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
 
 import connector.CbrApplication;
+import rs.ftn.ingzanja.repository.PregledRepository;
 import ucm.gaia.jcolibri.method.retrieve.selection.SelectCases;
 import ucm.gaia.jcolibri.method.retrieve.RetrievalResult;
 import rs.ftn.ingzanja.model.*;
@@ -19,9 +21,13 @@ import rs.ftn.ingzanja.dto.CBRDTO;
 public class CaseBasedService {
     //ispis na gui(?)
 
+    @Autowired
+    PregledRepository pregledRepository;
+
     public List<CBRDTO> getMatches(CBRModel cbr){
 
-        CbrApplication cbrapp = new CbrApplication();
+        CbrApplication cbrapp = new CbrApplication( pregledRepository.findCompletePregled());
+
 
         Collection<RetrievalResult> eval = cbrapp.evaluate(cbr);
 

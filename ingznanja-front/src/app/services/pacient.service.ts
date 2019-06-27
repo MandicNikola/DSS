@@ -5,6 +5,8 @@ import { Observable } from 'rxjs';
 import { Pacient } from '../model/Pacient';
 import { PreventivniPregled } from '../model/PreventivniPregled';
 import { Pregled } from '../model/Pregled';
+import { CaseBaseInfo } from '../model/CaseBaseInfo';
+
 
 const ROOT_URL = '//localhost:8081/api';
 
@@ -98,6 +100,10 @@ export class PacientService {
 
   setTerapija(body: Pregled) : Observable<any> {
     return this.http.post(`${ROOT_URL}/pregled/setTerapija`, body);
+  }
+
+  diganoseCase(body: CaseBaseInfo) : Observable<any> {
+    return this.http.post(`${ROOT_URL}/caseBased/case`, body);
   }
 
 

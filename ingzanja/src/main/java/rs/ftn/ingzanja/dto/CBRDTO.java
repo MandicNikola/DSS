@@ -32,7 +32,7 @@ public class CBRDTO {
     public String getDijagnostika() {
         return dijagnostika;
     }
-    public void setDijagnostika(Dijagnostika dijagnostika){this.dijagnostika= dijagnostika;}
+    public void setDijagnostika(String dijagnostika){this.dijagnostika= dijagnostika;}
     /**
      * @return the dijagnoza
      */

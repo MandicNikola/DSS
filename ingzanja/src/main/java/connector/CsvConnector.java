@@ -3,15 +3,15 @@ package connector;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import rs.ftn.ingzanja.model.CBRModel;
 import rs.ftn.ingzanja.model.Pregled;
+import rs.ftn.ingzanja.model.Simptom;
 import rs.ftn.ingzanja.repository.PregledRepository;
 import ucm.gaia.jcolibri.cbrcore.CBRCase;
 import ucm.gaia.jcolibri.cbrcore.CaseBaseFilter;
@@ -23,8 +23,11 @@ import ucm.gaia.jcolibri.util.FileIO;
 
 public class CsvConnector implements Connector {
 
-    @Autowired
-    PregledRepository pregledRepository;
+    private  List<Pregled> pregledi  = new ArrayList<>();
+
+    public CsvConnector(List<Pregled> pregleds){
+        this.pregledi = pregleds;
+    }
 
     @Override
     public Collection<CBRCase> retrieveAllCases() {
@@ -32,17 +35,24 @@ public class CsvConnector implements Connector {
 
 
         LinkedList<CBRCase> cases = new LinkedList<CBRCase>();
-        List<Pregled> pregledi = pregledRepository.findAll(); //ucitava preglede iz baze
-        List<CBRModel> modeli = new ArrayList<CBRModel>();
+        System.out.println(pregledi.size());
+
+        List<CBRModel> modeli = new ArrayList<>();
 
         //popuni cbrmodel pregledima iz baze
-        for(Pregled p : pregledi) {
+        for(int i = 0 ; i < pregledi.size(); i++) {
             CBRModel cbrm= new CBRModel();
-
+            Pregled p = pregledi.get(i);
             cbrm.setDijagnoza(p.getDijagnoza().getNaziv());
-            cbrm.setSimptomi(p.getSimptoms());
             cbrm.setTerapija(p.getTerapija().getNaziv());
-            cbrm.setDijagnostika(p.getDijagnostika());
+            cbrm.setDijagnostika(p.getDijagnostika().getNaziv());
+
+            for(Simptom s : p.getSimptoms())
+            {
+                cbrm.setSimptom(s.getNaziv());
+                break;
+            }
+
 
             modeli.add(cbrm);
 

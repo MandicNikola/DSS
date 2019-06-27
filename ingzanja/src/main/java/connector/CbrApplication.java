@@ -15,6 +15,7 @@ import rs.ftn.ingzanja.model.CBRModel;
 
 //import connector.CsvConnector;
 
+import rs.ftn.ingzanja.model.Pregled;
 import ucm.gaia.jcolibri.casebase.LinealCaseBase;
 import ucm.gaia.jcolibri.cbraplications.StandardCBRApplication;
 import ucm.gaia.jcolibri.cbrcore.Attribute;
@@ -56,6 +57,8 @@ import ucm.gaia.jcolibri.util.FileIO;
 
 public class  CbrApplication implements StandardCBRApplication {
 
+    public static List<Pregled> pregledi;
+
     Connector _connector;  /** Connector object */
     CBRCaseBase _caseBase;  /** CaseBase object */
 
@@ -64,7 +67,9 @@ public class  CbrApplication implements StandardCBRApplication {
     NNConfig simConfig;  /** KNN configuration */
 
     public void configure() throws ExecutionException {
-        _connector =  new CsvConnector();
+
+        _connector =  new CsvConnector(pregledi);
+
 
         _caseBase = new LinealCaseBase();  // Create a Lineal case base for in-memory organization
 
@@ -74,7 +79,8 @@ public class  CbrApplication implements StandardCBRApplication {
         //definise se na osnovu cega se porede slucajevi
         simConfig.addMapping(new Attribute("pol", CBRModel.class),  new Equal());
         simConfig.addMapping(new Attribute("godine", CBRModel.class),  new Equal());
-        simConfig.addMapping(new Attribute("simptomi", CBRModel.class),  new Equal());
+        simConfig.addMapping(new Attribute("simptom", CBRModel.class),  new Equal());
+
 
         // simConfig.addMapping(new Attribute("attribute", CaseDescription.class), new Interval(5));
         // TODO
@@ -90,10 +96,12 @@ public class  CbrApplication implements StandardCBRApplication {
         // TableSimilarity(List<String> values).setSimilarity(value1,value2,similarity)
     }
 
-    public CbrApplication() {
+    public CbrApplication(List<Pregled> pregleds) {
+
 
 
         super();
+        pregledi = pregleds;
         try {
             this.configure();
             this.preCycle();
@@ -106,13 +114,15 @@ public class  CbrApplication implements StandardCBRApplication {
     public void cycle(CBRQuery query) throws ExecutionException {
         Collection<RetrievalResult> eval = NNScoringMethod.evaluateSimilarity(_caseBase.getCases(), query, simConfig);
         eval = SelectCases.selectTopKRR(eval, 5);
-        System.out.println("Retrieved cases:");
+        System.out.println("Retrieved cases: ");
         requestResults = eval;
     }
 
     public void postCycle() throws ExecutionException {
 
     }
+
+
 
     public CBRCaseBase preCycle() throws ExecutionException {
         _caseBase.init(_connector);
@@ -152,6 +162,7 @@ public class  CbrApplication implements StandardCBRApplication {
         } catch(Exception e){
             e.printStackTrace();
             return null;
+
         }
 
 

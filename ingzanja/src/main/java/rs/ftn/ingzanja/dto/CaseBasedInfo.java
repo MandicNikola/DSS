@@ -5,17 +5,25 @@ public class CaseBasedInfo {
 
 
 
-    private Long iDPregleda;
+    private Long idPregleda;
     private List<String> simptomi;
 
+    public CaseBasedInfo() {}
 
-    public Long getiDPregleda() {
-        return iDPregleda;
+
+    public Long getIdPregleda() {
+        return idPregleda;
+    }
+
+    public void setIdPregleda(Long idPregleda) {
+        this.idPregleda = idPregleda;
     }
 
     public List<String> getSimptomi() {
         return simptomi;
     }
 
-    public CaseBasedInfo(){}
+    public void setSimptomi(List<String> simptomi) {
+        this.simptomi = simptomi;
+    }
 }

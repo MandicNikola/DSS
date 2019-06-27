@@ -20,6 +20,7 @@
         <button (click)="diagnose()" type="button" class="btn btn-success">Diagnose</button>
       </div>
 
+      <div *ngIf="selectMode === 'RULE'">
       <div *ngIf="showBolest" class="form-group">
         <label for="selectBolest">Odaberi bolest :</label>
         <select  [(ngModel)]="selectBolest" class="form-control" id="selectBolest" name="selectBolest">
@@ -31,16 +32,20 @@
       </div>
 
 
+    <div *ngIf="showDijagnostika" class="form-group">
+        <label for="selectDijagnostika">Odaberi dijagnostiku :</label>
+        <select  [(ngModel)]="selectDijagnostika" class="form-control" id="selectDijagnostika" name="selectDijagnostika">
+          <option *ngFor="let dijagnostika of dijagnostike">{{dijagnostika}}</option>
+        </select>
+      </div>
       <div *ngIf="showDijagnostika" class="form-group">
-          <label for="selectDijagnostika">Odaberi dijagnostiku :</label>
-          <select  [(ngModel)]="selectDijagnostika" class="form-control" id="selectDijagnostika" name="selectDijagnostika">
-            <option *ngFor="let dijagnostika of dijagnostike">{{dijagnostika}}</option>
-          </select>
-        </div>
-        <div *ngIf="showDijagnostika" class="form-group">
-          <button (click)="save()" type="button" class="btn btn-info">Save</button>
-        </div>
+        <button (click)="save()" type="button" class="btn btn-info">Save</button>
+      </div>
+    </div>
 
+    <div *ngIf="selectMode === 'CASE'">
+      
+    </div>
 
     </form>
   </div>

@@ -12,25 +12,21 @@ import ucm.gaia.jcolibri.cbrcore.CaseComponent;
 public class CBRModel implements CaseComponent {
 
 
-    private Pol pol;
+    private String pol;
     private int godine;
 
-    private List<String> simptomi ;
+    private String simptom;
+
+
     private String dijagnoza;
     private String terapija;
-    private Dijagnostika dijagnostika;
+    private String dijagnostika;
 
-    public void setDijagnostika(Dijagnostika dijagnostika){
 
-        this.dijagnostika= dijagnostika;
-    }
 
-    public Dijagnostika getDijagnostika(){
-        return dijagnostika;
-    }
-    /**
-     * @return the dijagnoza
-     */
+
+
+
     public String getDijagnoza() {
         return dijagnoza;
     }
@@ -61,7 +57,7 @@ public class CBRModel implements CaseComponent {
      */
     @Override
     public String toString() {
-        return "CBRModel [pol=" + pol + ", godine=" + godine + ", simptomi=" + simptomi + "]";
+        return "CBRModel [pol=" + pol + ", godine=" + godine + ", simptomi=" + simptom + "]";
     }
 
 
@@ -70,14 +66,14 @@ public class CBRModel implements CaseComponent {
     /**
      * @return the pol
      */
-    public Pol getPol() {
+    public String getPol() {
         return pol;
     }
 
     /**
      * @param pol the pol to set
      */
-    public void setPol(Pol pol) {
+    public void setPol(String pol) {
         this.pol = pol;
     }
 
@@ -95,19 +91,7 @@ public class CBRModel implements CaseComponent {
         this.godine = godine;
     }
 
-    /**
-     * @return the simptomi
-     */
-    public List<String> getSimptomi()
-        return simptomi;
-    }
 
-    /**
-     * @param set the simptomi to set
-     */
-    public void setSimptomi(Set<Simptom> set) {
-        this.simptomi = set;
-    }
 
     @Override
     public Attribute getIdAttribute() {
@@ -116,9 +100,21 @@ public class CBRModel implements CaseComponent {
     }
 
 
+    public String getDijagnostika() {
+        return dijagnostika;
+    }
 
+    public void setDijagnostika(String dijagnostika) {
+        this.dijagnostika = dijagnostika;
+    }
 
+    public String getSimptom() {
+        return simptom;
+    }
 
+    public void setSimptom(String simptom) {
+        this.simptom = simptom;
+    }
 
 
 }
