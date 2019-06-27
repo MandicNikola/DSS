@@ -29,11 +29,14 @@ export class PacientDetailsComponent implements OnInit {
     this.pacientService.getPacient(this.idPacient).subscribe(
       data => {
         this.pacient = data
-        console.log(data);
+        
       }
     );
     this.pacientService.getPregledi(this.idPacient).subscribe(
-      data => this.pregledi = data
+      data => {
+        this.pregledi = data;
+        console.log(data)
+      }
     );
 
     this.pacientService.getPreventivniPregledi(this.idPacient).subscribe(
