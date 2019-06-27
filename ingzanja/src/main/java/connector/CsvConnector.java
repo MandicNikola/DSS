@@ -42,6 +42,8 @@ public class CsvConnector implements Connector {
             cbrm.setDijagnoza(p.getDijagnoza().getNaziv());
             cbrm.setSimptomi(p.getSimptoms());
             cbrm.setTerapija(p.getTerapija().getNaziv());
+            cbrm.setDijagnostika(p.getDijagnostika());
+
             modeli.add(cbrm);
 
         }
