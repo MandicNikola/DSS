@@ -3,6 +3,10 @@ insert into pacient (id, ime, prezime, godiste, jmbg, rasa, pol,telefon,adresa,a
 values (1, 'Nikola', 'Nikolic', 1995, '0605995172650', 'white', 'male','0618454545','Tekeljina 25',false, true, 'fat');
 insert into pacient (id, ime, prezime, godiste, jmbg, rasa, pol,telefon,adresa,alkohol,pusac,debljina) values
 (2, 'Sima', 'Simic', 1996, '0612995172650', 'white', 'male','0607545612','BB 25',true, true, 'skinny');
+insert into pacient (id, ime, prezime, godiste, jmbg, rasa, pol,telefon,adresa,alkohol,pusac,debljina) values
+(3, 'Pera', 'Peric', 1977, '0612977172650', 'white', 'male','0601255612','Bulevar 25',true, false, 'skinny');
+insert into pacient (id, ime, prezime, godiste, jmbg, rasa, pol,telefon,adresa,alkohol,pusac,debljina) values
+(4, 'Ana', 'Anic', 1965, '1206965172750', 'white', 'female','0601255456','Nova 12',false , false, 'fat');
 
 /*
 insert into pregled (id,pacient_id) values (1,1);
