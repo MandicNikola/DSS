@@ -18,8 +18,16 @@ public class CBRModel implements CaseComponent {
     private Set<Simptom> simptomi ;
     private String dijagnoza;
     private String terapija;
+    private Dijagnostika dijagnostika;
 
+    public void setDijagnostika(Dijagnostika dijagnostika){
 
+        this.dijagnostika= dijagnostika;
+    }
+
+    public Dijagnostika getDijagnostika(){
+        return dijagnostika;
+    }
     /**
      * @return the dijagnoza
      */

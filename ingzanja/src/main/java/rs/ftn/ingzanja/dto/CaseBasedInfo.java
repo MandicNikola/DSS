@@ -9,7 +9,7 @@ public class CaseBasedInfo {
     private List<String> simptomi;
 
 
-    public int getiDPregleda() {
+    public Long getiDPregleda() {
         return iDPregleda;
     }
 

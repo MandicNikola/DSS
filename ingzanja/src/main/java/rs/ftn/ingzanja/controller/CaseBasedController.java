@@ -19,6 +19,7 @@ import rs.ftn.ingzanja.model.CBRModel;
 import rs.ftn.ingzanja.dto.CBRDTO;
 import rs.ftn.ingzanja.model.Pacient;
 import rs.ftn.ingzanja.model.Pregled;
+import rs.ftn.ingzanja.dto.CaseBasedInfo;
 
 @RestController
 @RequestMapping(value="api/caseBased")
@@ -37,11 +38,14 @@ public class CaseBasedController {
     @Autowired
     private CaseBasedService caseBasedService ;
 
-/*
-    @RequestMapping(value = "/case", method = RequestMethod.POST)
-    public List<CBRDTO> getNajboljiSlucaj @RequestBody CBRModel cbr){
 
-        Pregled pregled = pregledRepository.findById(id).get();
+    @RequestMapping(value = "/case", method = RequestMethod.POST)
+    public List<CBRDTO> getNajboljiSlucaj( @RequestBody CaseBasedInfo cb){
+
+
+        Pregled pregled = pregledRepository.findById(cb.getiDPregleda()).get();
+        CBRModel cbr = new CBRModel();
+
 
         int godine = pregled.getPacient().getGodiste();
         Pol pol = pregled.getPacient().getPol();
@@ -51,7 +55,6 @@ public class CaseBasedController {
         cbr.setGodine(godine);
         cbr.setPol(pol);
 
-
         return caseBasedService.getMatches(cbr);
 
 
@@ -60,7 +63,7 @@ public class CaseBasedController {
     }
 
 
-*/
+
 
 
 

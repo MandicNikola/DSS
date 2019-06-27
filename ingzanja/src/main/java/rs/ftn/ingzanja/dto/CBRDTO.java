@@ -2,6 +2,7 @@ package rs.ftn.ingzanja.dto;
 
 import java.util.ArrayList;
 import java.util.List;
+import rs.ftn.ingzanja.model.*;
 
 public class CBRDTO {
 
@@ -25,9 +26,13 @@ public class CBRDTO {
     private String terapija;
 
     private List<String> simptomi;
+    private Dijagnostika dijagnostika;
 
 
-
+    public Dijagnostika getDijagnostika() {
+        return dijagnostika;
+    }
+    public void setDijagnostika(Dijagnostika dijagnostika){this.dijagnostika= dijagnostika;}
     /**
      * @return the dijagnoza
      */

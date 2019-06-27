@@ -39,6 +39,7 @@ public class CaseBasedService {
                 novi.setDijagnoza(((CBRModel) rr.get_case().getDescription()).getDijagnoza());
                 novi.setTerapija(((CBRModel) rr.get_case().getDescription()).getTerapija());
                 //novi.setSimptomi(((CBRModel) rr.get_case().getDescription().getSimptomi());
+                novi.setDijagnostika(((CBRModel) rr.get_case().getDescription()).getDijagnostika());
                 rezultati.add(novi);
             }
             else {
