@@ -28,6 +28,7 @@ public class CaseBasedService {
         eval = SelectCases.selectTopKRR(eval, 5);
 
 
+
         ArrayList<CBRDTO> rezultati = new ArrayList<CBRDTO>();
 
         for(RetrievalResult rr : eval) {

@@ -15,7 +15,7 @@ public class CBRModel implements CaseComponent {
     private Pol pol;
     private int godine;
 
-    private Set<Simptom> simptomi ;
+    private List<String> simptomi ;
     private String dijagnoza;
     private String terapija;
     private Dijagnostika dijagnostika;
@@ -98,7 +98,7 @@ public class CBRModel implements CaseComponent {
     /**
      * @return the simptomi
      */
-    public Set<Simptom> getSimptomi() {
+    public List<String> getSimptomi()
         return simptomi;
     }
 

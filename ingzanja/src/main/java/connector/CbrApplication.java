@@ -54,7 +54,7 @@ import ucm.gaia.jcolibri.method.retrieve.selection.SelectCases;
 import ucm.gaia.jcolibri.util.FileIO;
 
 
-public class CbrApplication implements StandardCBRApplication {
+public class  CbrApplication implements StandardCBRApplication {
 
     Connector _connector;  /** Connector object */
     CBRCaseBase _caseBase;  /** CaseBase object */

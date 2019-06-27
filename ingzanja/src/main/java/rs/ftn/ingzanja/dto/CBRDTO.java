@@ -26,10 +26,10 @@ public class CBRDTO {
     private String terapija;
 
     private List<String> simptomi;
-    private Dijagnostika dijagnostika;
+    private String dijagnostika;
 
 
-    public Dijagnostika getDijagnostika() {
+    public String getDijagnostika() {
         return dijagnostika;
     }
     public void setDijagnostika(Dijagnostika dijagnostika){this.dijagnostika= dijagnostika;}

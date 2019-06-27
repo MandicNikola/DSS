@@ -8,11 +8,20 @@ insert into pacient (id, ime, prezime, godiste, jmbg, rasa, pol,telefon,adresa,a
 insert into pacient (id, ime, prezime, godiste, jmbg, rasa, pol,telefon,adresa,alkohol,pusac,debljina) values
 (4, 'Ana', 'Anic', 1965, '1206965172750', 'white', 'female','0601255456','Nova 12',false , false, 'fat');
 
+insert into pregled (id, is_complet, dijagnostika_id, dijagnoza_id, pacient_id, terapija_id) values (
+2, 1, 3, 3, 3, 3
+);
+
+
+
+
 /*
 insert into pregled (id,pacient_id) values (1,1);
 insert into pregled (id,pacient_id) values (2,1);
 insert into pregled (id,pacient_id) values (3,2);
 insert into pregled (id,pacient_id) values (4,2);
+
+
 
 
 insert into pregled_simptomi(pregled_id, simptom_id) values (1,1);
