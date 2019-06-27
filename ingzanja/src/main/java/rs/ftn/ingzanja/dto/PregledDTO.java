@@ -18,6 +18,8 @@ public class PregledDTO {
 
     private Long pacientId;
 
+    private boolean isComplete;
+
     public PregledDTO(){
         super();
     }
@@ -30,6 +32,13 @@ public class PregledDTO {
 
     }
 
+    public boolean isComplete() {
+        return isComplete;
+    }
+
+    public void setComplete(boolean complete) {
+        isComplete = complete;
+    }
 
     public String getDijagnostika() {
         return dijagnostika;
