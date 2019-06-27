@@ -5,5 +5,5 @@ export class Pregled {
     dijagnostika ?: string;
     simptoms ?: any;
     pacient ?: any;
-
+    isComplet ?: boolean = false;
 }

@@ -6,6 +6,7 @@ import { PacientsComponent } from './components/pacients/pacients.component';
 import { PacientComponent } from './components/pacient/pacient.component';
 import { PacientDetailsComponent } from './components/pacient-details/pacient-details.component';
 import { PreventiveComponent } from './components/preventive/preventive.component';
+import { ZavrsiPregledComponent } from './components/zavrsi-pregled/zavrsi-pregled.component';
 
 const routes : Routes = [
   {path: '', redirectTo: '/pacients', pathMatch: 'full'},
@@ -13,7 +14,8 @@ const routes : Routes = [
   {path: 'pregled/:id/:idPacienta', component: PregledComponent},
   {path: 'pacient', component: PacientComponent },
   {path: 'details/:id', component: PacientDetailsComponent },
-  {path: 'preventive/:id/:idPacient', component: PreventiveComponent }
+  {path: 'preventive/:id/:idPacient', component: PreventiveComponent },
+  {path: 'zavrsiPregled/:id', component: ZavrsiPregledComponent }
 ];
 
 

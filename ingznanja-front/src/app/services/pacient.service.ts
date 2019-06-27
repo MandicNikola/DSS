@@ -92,5 +92,13 @@ export class PacientService {
     return this.http.post(`${ROOT_URL}/pregled/setDijagnostika`, body);
   }
 
+  setDijagnoza(body: Pregled) : Observable<any> {
+    return this.http.post(`${ROOT_URL}/pregled/setDijagnoza`, body);
+  }
+
+  setTerapija(body: Pregled) : Observable<any> {
+    return this.http.post(`${ROOT_URL}/pregled/setTerapija`, body);
+  }
+
 
 }

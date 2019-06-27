@@ -12,6 +12,7 @@ import { PacientsComponent } from './components/pacients/pacients.component';
 import { PacientComponent } from './components/pacient/pacient.component';
 import { PacientDetailsComponent } from './components/pacient-details/pacient-details.component';
 import { PreventiveComponent } from './components/preventive/preventive.component';
+import { ZavrsiPregledComponent } from './components/zavrsi-pregled/zavrsi-pregled.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { PreventiveComponent } from './components/preventive/preventive.componen
     PacientsComponent,
     PacientComponent,
     PacientDetailsComponent,
-    PreventiveComponent
+    PreventiveComponent,
+    ZavrsiPregledComponent
   ],
   imports: [
     BrowserModule,

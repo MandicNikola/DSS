@@ -1,0 +1,23 @@
+<div class="set">
+  <div id="pacientContainer">
+    <h3>Zavrsi pregled</h3>
+      <form>
+        <div class="form-group">
+          <label for="selectedBolest">Odaberi bolest</label>
+          <select  class="form-control" [(ngModel)]="selectedBolest" name="selectedBolest" id="selectedBolest">
+              <option *ngFor="let bolest of bolesti">{{bolest.naziv}}</option>
+          </select>
+        </div>
+        <button type="button" (click)="terapies()" class="btn btn-dark">Choose</button>
+        
+        <div *ngIf="showTerapije" class="form-group">
+          <label for="selectedTerapija">Odaberi terapiju</label>
+          <select  class="form-control" [(ngModel)]="selectedTerapija" name="selectedTerapija" id="selectedTerapija">
+              <option *ngFor="let terpija of terapije">{{terpija}}</option>
+          </select>
+        </div>
+        <button type="button" (click)="finish()" class="btn btn-success">Finish</button>
+
+      </form>
+  </div>
+</div>
