@@ -680,7 +680,7 @@ moguce_bolesti(S,B) :- disease_symptoms(B,S2), sadrzi(S2,S).
 sum_percent([],B,0).
 sum_percent([H|T],B,SUM):-disease_symptom_percent(B,H,P),sum_percent(T,B,SUM2),SUM is P+SUM2.
 
-final_sum(GOD,POL,RACE,S,B,SUM):-sum_percent(S,B,SUM1),sexRisk(POL,B,SK),raceRisk(RACE,B,RK),yearRisk(GOD,B,YK), SUM is SUM1*SK*RK*YK.
+final_sum(GOD,POL,RACE,WEIGHT,ALK,SMOKE,S,B,SUM):-sum_percent(S,B,SUM1),koefPrev(GOD,POL,RACE,WEIGHT,ALK,SMOKE,B,KFP), SUM is SUM1*KFP.
 
 koef(GOD,POL,RACE,B,KFF):-sexRisk(POL,B,SK),raceRisk(RACE,B,RK),yearRisk(GOD,B,YK), KFF is SK*RK*YK.
 

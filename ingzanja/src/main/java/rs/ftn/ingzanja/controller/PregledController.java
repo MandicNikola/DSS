@@ -149,7 +149,7 @@ public class PregledController {
         int godiste = pacient.getGodiste();
         String debljina=pacient.getDebljina();
         boolean smoke=pacient.isPusac();
-        boolean alc=pacient.isAlkohol();
+        boolean alcohol=pacient.isAlkohol();
         godiste=2019-godiste;
         String rasaS;
         String polS;
@@ -167,7 +167,7 @@ public class PregledController {
             katWeight=3;
         }
 
-        if(alc){
+        if(alcohol){
             katAlc=1;
         }else{
             katAlc=0;
@@ -280,6 +280,73 @@ public class PregledController {
 
         service.saveSimptoms(simptomi,p);
 
+        if(retLista.size() >= 5){
+            return new ResponseEntity<>(retLista, HttpStatus.OK);
+        }
+
+        int doPet=5-retLista.size();
+
+        HashMap<String,Float> ostaleBolesti=service.makeSetOfBolest(katGod, polS, rasaS, katWeight, katAlc, katSmoke);
+
+        for(String simptom:simptomi){
+            try {
+                String upit2="disease_symptom_percent(B,"+simptom+", P).";
+                engine.consultFile("/src/program.pl");
+                JIPTermParser parser=engine.getTermParser();
+                JIPTerm term=parser.parseTerm(upit2);
+                JIPQuery query=engine.openSynchronousQuery(term);
+
+                JIPTerm solution;
+
+                while((solution=query.nextSolution()) !=null) {
+                    System.out.println(solution.toString());
+
+                    //ako ima vise varijabli koje su deo upta
+                    int i=0;
+                    String s=null;
+                    for(JIPVariable var: solution.getVariables()) {
+                        if(i==0){
+                            s=var.getValue().toString();
+                            i++;
+                        }else {
+                            float midValue=ostaleBolesti.get(s);
+                            float broj=Float.parseFloat(var.getValue().toString());
+                            midValue+=broj;
+                            ostaleBolesti.put(s,midValue);
+                            bovre.add(new BolestVrednost(s, broj));
+                            i = 0;
+                            sum+=broj;
+                        }
+                        System.out.println(var.getName()+ "="+var.getValue());
+                    }
+                }
+
+            } catch (Exception e) {
+                // TODO: handle exception
+                e.printStackTrace();
+            }
+        }
+
+        for(String boljka:retLista){
+            ostaleBolesti.remove(boljka);
+        }
+
+        List<BolestVrednost> bolestVrednosts=new ArrayList<>();
+        for(String key:ostaleBolesti.keySet()){
+            bolestVrednosts.add(new BolestVrednost(key,ostaleBolesti.get(key)));
+        }
+        Collections.sort(bolestVrednosts, new Comparator<BolestVrednost>() {
+            @Override
+            public int compare(BolestVrednost u1, BolestVrednost u2) {
+                return u2.getVrednost().compareTo(u1.getVrednost());
+            }
+        });
+
+        for(int i=0; i < doPet; i++){
+            retLista.add(bolestVrednosts.get(i).getBolest());
+        }
+
+
         return new ResponseEntity<>(retLista, HttpStatus.OK);
     }
 
@@ -340,7 +407,7 @@ public class PregledController {
 
     /**
      * Metoda za vracanje liste lekova za neku bolest
-     * @param obj - param za koji se daju moguce terapije
+     *
      * @return retList - ArrayList-a potencijalnih terapija
      */
     @RequestMapping(

@@ -1,15 +1,13 @@
 package rs.ftn.ingzanja.service;
 
+import com.ugos.jiprolog.engine.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import rs.ftn.ingzanja.dto.PregledDTO;
 import rs.ftn.ingzanja.model.*;
 import rs.ftn.ingzanja.repository.*;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Service
 public class PregledServiceImpl implements PregledService {
@@ -102,5 +100,47 @@ public class PregledServiceImpl implements PregledService {
         pregled.setTerapija(terapija1);
         pregled.setComplet(true);
         repository.save(pregled);
+    }
+
+    @Override
+    public HashMap<String,Float> makeSetOfBolest(int katGod, String pol, String rasaS, int katWeight, int katAlc, int katSmoke){
+        List<Bolest> bolesti=bolestRepository.findAll();
+        HashMap<String,Float> retVal=new HashMap<>();
+        JIPEngine engine=new JIPEngine();
+
+        for(Bolest bolest:bolesti){
+            retVal.put(bolest.getNaziv(), (float) 0);
+        }
+
+        for(String key: retVal.keySet()){
+            //koefPrev(2,male,white,2,0,1,heart_attack, KOEF).
+            String upit="koefPrev("+katGod+", "+pol+", "+rasaS+", "+katWeight+", "+katAlc+", "+katSmoke+", "+key+", KOEF).";
+
+
+            try{
+
+                engine.consultFile("/src/program.pl");
+                JIPTermParser parser=engine.getTermParser();
+                JIPTerm term=parser.parseTerm(upit);
+                JIPQuery query=engine.openSynchronousQuery(term);
+
+                JIPTerm solution;
+
+                while((solution=query.nextSolution()) !=null) {
+
+                    //ako ima vise varijabli koje su deo upta
+                    for(JIPVariable var: solution.getVariables()) {
+                        System.out.println(var.getName()+ "="+var.getValue());
+                        retVal.put(key,Float.parseFloat(var.getValue().toString()));
+                    }
+                }
+
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+
+        }
+
+        return retVal;
     }
 }
