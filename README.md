@@ -14,6 +14,7 @@ Ivana Tomic <br />
 >spring.datasource.username ={%username%} <br />
 >spring.datasource.password ={%password%} <br />
 >U data.sql fajlu postoje zakomentarisane tabele koje sadrze podatke, potrebno je ukloniti komentar kako bi se baza napunila podacima <br />
+>Voditi racuna o tome da li su SVE biblioteke ukljucene u java build path <br/>
 >Aplikacija se moze pokrenuti direktno iz alata (intelijj ili eclipse)
 
 # Uputstvo za pokretanje ui app <br />
