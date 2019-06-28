@@ -95,7 +95,7 @@ export class PregledComponent implements OnInit {
     this.router.navigate(['/pacients']);
   }
 
-  finshCase(id: number): void {
+  finishCase(id: number): void {
     let caseRet: CaseBaseRet = this.caseBaseRets[id];
     let pregled: Pregled = new Pregled();
     pregled.id = this.idPregled;
