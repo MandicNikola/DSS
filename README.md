@@ -3,7 +3,11 @@ Doctor support system <br/>
 Authors: <br/>
 Nikola Mandic <br/>
 Mirko Ivic <br/>
-Ivana Tomic
+Ivana Tomic <br />
+
+# Profesori
+> - Stevan Gostojić 
+> - Marko Marković
 
 # Uputstvo za pokretanje spring app <br />
 > U resource folderu  u application.properties neophodno je podesiti: <br />
