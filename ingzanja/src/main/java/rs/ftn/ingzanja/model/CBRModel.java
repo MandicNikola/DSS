@@ -12,6 +12,8 @@ import ucm.gaia.jcolibri.cbrcore.CaseComponent;
 public class CBRModel implements CaseComponent {
 
 
+    private Long id;
+
     private String pol;
     private int godine;
 
@@ -93,6 +95,8 @@ public class CBRModel implements CaseComponent {
 
 
 
+
+
     @Override
     public Attribute getIdAttribute() {
         // TODO Auto-generated method stub
@@ -117,4 +121,11 @@ public class CBRModel implements CaseComponent {
     }
 
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 }

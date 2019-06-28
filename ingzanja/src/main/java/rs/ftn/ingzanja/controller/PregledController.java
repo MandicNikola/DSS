@@ -123,6 +123,22 @@ public class PregledController {
         return new ResponseEntity<>(id, HttpStatus.OK);
     }
 
+    @RequestMapping(value = "/get/{id}", method = RequestMethod.GET)
+    public ResponseEntity<PregledDTO> getPregled(@PathVariable("id") Long id)
+    {
+        Pregled pregled = service.findPregledById(id);
+        PregledDTO pregledDTO = new PregledDTO();
+        ArrayList<String> simptoms = new ArrayList<>();
+        for(Simptom simptom : pregled.getSimptoms()){
+            simptoms.add(simptom.getNaziv());
+        }
+
+        pregledDTO.setSimptoms(simptoms);
+        pregledDTO.setDijagnostika(pregled.getDijagnostika().getNaziv());
+        return new ResponseEntity<>(pregledDTO, HttpStatus.OK);
+
+    }
+
 
     /**
      * Metoda za dijagnozu potencijalnih bolesti, pomocu prologa

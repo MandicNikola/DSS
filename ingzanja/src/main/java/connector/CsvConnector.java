@@ -35,28 +35,26 @@ public class CsvConnector implements Connector {
 
 
         LinkedList<CBRCase> cases = new LinkedList<CBRCase>();
-        System.out.println(pregledi.size());
 
         List<CBRModel> modeli = new ArrayList<>();
 
         //popuni cbrmodel pregledima iz baze
         for(int i = 0 ; i < pregledi.size(); i++) {
-            CBRModel cbrm= new CBRModel();
-            Pregled p = pregledi.get(i);
-            cbrm.setDijagnoza(p.getDijagnoza().getNaziv());
-            cbrm.setTerapija(p.getTerapija().getNaziv());
-            cbrm.setDijagnostika(p.getDijagnostika().getNaziv());
 
+            Pregled p = pregledi.get(i);
             for(Simptom s : p.getSimptoms())
             {
+                CBRModel cbrm= new CBRModel();
+                cbrm.setDijagnoza(p.getDijagnoza().getNaziv());
+                cbrm.setTerapija(p.getTerapija().getNaziv());
+                cbrm.setDijagnostika(p.getDijagnostika().getNaziv());
                 cbrm.setSimptom(s.getNaziv());
-                break;
+                cbrm.setId(p.getId());
+                modeli.add(cbrm);
             }
-
-
-            modeli.add(cbrm);
-
         }
+
+
         //popuni case
         for(CBRModel m : modeli) {
             CBRCase cbrCase = new CBRCase();

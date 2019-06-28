@@ -28,6 +28,11 @@ public class CBRDTO {
     private List<String> simptomi;
     private String dijagnostika;
 
+    private String simptom;
+
+    private Long id;
+
+    public CBRDTO() {}
 
     public String getDijagnostika() {
         return dijagnostika;
@@ -62,7 +67,20 @@ public class CBRDTO {
     }
 
 
+    public String getSimptom() {
+        return simptom;
+    }
+
+    public void setSimptom(String simptom) {
+        this.simptom = simptom;
+    }
 
 
+    public Long getId() {
+        return id;
+    }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
 }
