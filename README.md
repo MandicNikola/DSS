@@ -13,7 +13,7 @@ Ivana Tomic <br />
 > U resource folderu  u application.properties neophodno je podesiti: <br />
 >spring.datasource.username ={%username%} <br />
 >spring.datasource.password ={%password%} <br />
->U data.sql fajlu postoje zakomentarisane tabele koje sadrze podatke, potrebno je ukloniti komentar kako bi se baza napunila podacima
+>U data.sql fajlu postoje zakomentarisane tabele koje sadrze podatke, potrebno je ukloniti komentar kako bi se baza napunila podacima />
 >Aplikacija se moze pokrenuti direktno iz alata (intelijj ili eclipse)
 
 # Uputstvo za pokretanje ui app <br />
