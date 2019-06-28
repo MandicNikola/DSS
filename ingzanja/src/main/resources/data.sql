@@ -1,16 +1,22 @@
 
-/*
-insert into pacient (id, ime, prezime, godiste, jmbg, rasa, pol,telefon,adresa,alkohol,pusac,debljina)
-values (1, 'Nikola', 'Nikolic', 1995, '0605995172650', 'white', 'male','0618454545','Tekeljina 25',false, true, 'fat');
-insert into pacient (id, ime, prezime, godiste, jmbg, rasa, pol,telefon,adresa,alkohol,pusac,debljina) values
-(2, 'Sima', 'Simic', 1996, '0612995172650', 'white', 'male','0607545612','BB 25',true, true, 'skinny');
-insert into pacient (id, ime, prezime, godiste, jmbg, rasa, pol,telefon,adresa,alkohol,pusac,debljina) values
-(3, 'Pera', 'Peric', 1977, '0612977172650', 'white', 'male','0601255612','Bulevar 25',true, false, 'skinny');
-insert into pacient (id, ime, prezime, godiste, jmbg, rasa, pol,telefon,adresa,alkohol,pusac,debljina) values
-(4, 'Ana', 'Anic', 1965, '1206965172750', 'white', 'female','0601255456','Nova 12',false , false, 'fat');
+INSERT INTO `pacient` (`id`,`jmbg`,`adresa`,`alkohol`,`debljina`,`godiste`,`ime`,`pol`,`prezime`,`pusac`,`rasa`,`telefon`) VALUES (1,'0605995172650','Tekeljina 25',0,'fat',1995,'Nikola','male','Nikolic',1,'white','0618454545');
+INSERT INTO `pacient` (`id`,`jmbg`,`adresa`,`alkohol`,`debljina`,`godiste`,`ime`,`pol`,`prezime`,`pusac`,`rasa`,`telefon`) VALUES (2,'0612995172650','BB 25',1,'skinny',1996,'Sima','male','Simic',1,'white','0607545612');
+INSERT INTO `pacient` (`id`,`jmbg`,`adresa`,`alkohol`,`debljina`,`godiste`,`ime`,`pol`,`prezime`,`pusac`,`rasa`,`telefon`) VALUES (3,'0612977172650','Bulevar 25',1,'skinny',1977,'Pera','male','Peric',0,'white','0601255612');
+INSERT INTO `pacient` (`id`,`jmbg`,`adresa`,`alkohol`,`debljina`,`godiste`,`ime`,`pol`,`prezime`,`pusac`,`rasa`,`telefon`) VALUES (4,'1206965172750','Nova 12',0,'fat',1965,'Ana','female','Anic',1,'white','0601255456');
+INSERT INTO `pacient` (`id`,`jmbg`,`adresa`,`alkohol`,`debljina`,`godiste`,`ime`,`pol`,`prezime`,`pusac`,`rasa`,`telefon`) VALUES (5,'1505989201156','Nova Ulica 4',0,'normal',1989,'Pera','male','Peric',0,'white','0631458965');
+INSERT INTO `pacient` (`id`,`jmbg`,`adresa`,`alkohol`,`debljina`,`godiste`,`ime`,`pol`,`prezime`,`pusac`,`rasa`,`telefon`) VALUES (6,'2809956805147','Kralja Petra 45',0,'skinny',1956,'Jovan','male','Jovanovic',0,'white','0601234567');
+INSERT INTO `pacient` (`id`,`jmbg`,`adresa`,`alkohol`,`debljina`,`godiste`,`ime`,`pol`,`prezime`,`pusac`,`rasa`,`telefon`) VALUES (7,'0603954789456','Bulevar Kralja Petra 3',0,'normal',1954,'Milan','male','Milanovic',1,'white','0641234567');
 
+INSERT INTO `pregled` (`id`,`is_complet`,`dijagnostika_id`,`dijagnoza_id`,`pacient_id`,`terapija_id`) VALUES (1,1,20,2,1,51);
+INSERT INTO `pregled` (`id`,`is_complet`,`dijagnostika_id`,`dijagnoza_id`,`pacient_id`,`terapija_id`) VALUES (2,1,4,2,1,63);
+INSERT INTO `pregled` (`id`,`is_complet`,`dijagnostika_id`,`dijagnoza_id`,`pacient_id`,`terapija_id`) VALUES (20,1,1,8,4,69);
+INSERT INTO `pregled` (`id`,`is_complet`,`dijagnostika_id`,`dijagnoza_id`,`pacient_id`,`terapija_id`) VALUES (5,1,4,1,2,81);
+INSERT INTO `pregled` (`id`,`is_complet`,`dijagnostika_id`,`dijagnoza_id`,`pacient_id`,`terapija_id`) VALUES (21,1,20,7,5,48);
+INSERT INTO `pregled` (`id`,`is_complet`,`dijagnostika_id`,`dijagnoza_id`,`pacient_id`,`terapija_id`) VALUES (8,1,20,2,1,51);
+INSERT INTO `pregled` (`id`,`is_complet`,`dijagnostika_id`,`dijagnoza_id`,`pacient_id`,`terapija_id`) VALUES (9,1,12,2,7,63);
+INSERT INTO `pregled` (`id`,`is_complet`,`dijagnostika_id`,`dijagnoza_id`,`pacient_id`,`terapija_id`) VALUES (10,1,20,2,1,51);
 
-
+/* OVDE UKLONITI KOMENTAR 
 insert into simptom (naziv) values  ('abnormal_involuntary_movements');
 insert into simptom (naziv) values  ('apnea');
 insert into simptom (naziv) values  ('arm_pain');
@@ -195,6 +201,5 @@ insert into porodicne_bolesti (id_pacijent,id_bolest) values (2,7);
 
 insert into istorija_bolesti (id_pacijent,id_bolest) values (1,1);
 insert into istorija_bolesti (id_pacijent,id_bolest) values (2,5);
-
 
 */
