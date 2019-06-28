@@ -16,8 +16,15 @@
               <option *ngFor="let terpija of terapije">{{terpija}}</option>
           </select>
         </div>
+        
         <button *ngIf="showTerapije"  type="button" (click)="finish()" class="btn btn-success">Finish</button>
-
+        
+         
+        <button style="margin-left: 50px;" *ngIf="showTerapije"  type="button" (click)="showGraf()" class="btn btn-info">Graf</button>
+        
       </form>
+      <app-graf *ngIf="showGrafPregleda" [pregled]="pregled" ></app-graf>
+
+
   </div>
 </div>

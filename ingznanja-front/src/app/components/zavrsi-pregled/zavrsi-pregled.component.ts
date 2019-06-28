@@ -21,6 +21,10 @@ export class ZavrsiPregledComponent implements OnInit {
   selectedTerapija : string = '';
   showTerapije : boolean = false;
 
+  pregled : Pregled = new Pregled();
+
+  showGrafPregleda : boolean = false;
+
   constructor(
     private pacientService : PacientService,
     private router : Router,
@@ -34,16 +38,21 @@ export class ZavrsiPregledComponent implements OnInit {
         this.selectedBolest = this.bolesti[0].naziv;
       }
     );
+
+    this.pacientService.getPregled(this.idPregleda).subscribe(
+      response => this.pregled = response
+    );
+    
   }
 
   ngOnInit() {
   }
 
   terapies() : void {
-    let pregled : Pregled = new Pregled();
-    pregled.id = this.idPregleda;
-    pregled.dijagnoza = this.selectedBolest;
-    this.pacientService.setDijagnoza(pregled).subscribe(
+    let pregledSend : Pregled = new Pregled();
+    pregledSend.id = this.idPregleda;
+    pregledSend.dijagnoza = this.selectedBolest;
+    this.pacientService.setDijagnoza(pregledSend).subscribe(
       terapije => {
         this.terapije = terapije
         this.selectedTerapija = this.terapije[0];
@@ -53,14 +62,21 @@ export class ZavrsiPregledComponent implements OnInit {
   }
 
   finish() : void {
-    let pregled : Pregled = new Pregled();
-    pregled.id = this.idPregleda;
-    pregled.terapija = this.selectedTerapija;
-    this.pacientService.setTerapija(pregled).subscribe(
+    let pregledSend : Pregled = new Pregled();
+    pregledSend.id = this.idPregleda;
+    pregledSend.terapija = this.selectedTerapija;
+    this.pacientService.setTerapija(pregledSend).subscribe(
       terapije => {
         this.router.navigate(['/pacients']);
       }
     );
+  }
+
+  showGraf() : void {
+    this.pregled.dijagnoza = this.selectedBolest;
+    this.pregled.terapija = this.selectedTerapija;
+
+    this.showGrafPregleda = !this.showGrafPregleda;
   }
 
 }

@@ -1,0 +1,31 @@
+
+
+  .circle-with-text {
+    background: linear-gradient(orange, red);
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    text-align: center;
+    margin: auto;
+    font-size: 15px;
+    padding: 15px;
+    display: flex;
+    height: 80px;
+    width: 80px;
+    color: #fff;
+  }
+
+  .set{
+      margin: auto;
+  }
+
+  .box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.my-auto {
+    margin-top: auto;
+margin-bottom: auto;
+}

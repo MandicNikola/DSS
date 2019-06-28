@@ -1,0 +1,48 @@
+<div style="margin-top: 30px;">
+
+  <div class="row">
+    <div class="col">
+      <p style="text-align: center">Simptoms</p>
+      <div class="circle-with-text" *ngFor="let simptom of pregled.simptoms">
+        {{simptom}}
+      </div>
+    </div>
+    <div class="col my-auto ">
+      <p style="font-weight:bold; margin-top:20px; padding-right: 30px;">------------></p>
+    </div>
+
+    <div class="col my-auto">
+      <p style="text-align: center">Dijagnostika</p>
+      <div class="circle-with-text" style=" height: 150px;
+      width: 150px; font-size: 12px;">
+        {{pregled.dijagnostika}}
+      </div>
+    </div>
+
+    <div class="col my-auto ">
+      <p style="font-weight:bold; margin-top:20px; padding-right: 30px;">------------></p>
+    </div>
+
+    <div class="col my-auto">
+      <p style="text-align: center">Dijagnoza</p>
+      <div class="circle-with-text" style=" height: 120px;
+      width: 120px; font-size: 12px;">
+        {{pregled.dijagnoza}}
+      </div>
+    </div>
+
+
+    <div class="col my-auto ">
+      <p style="font-weight:bold; margin-top:20px;">------------></p>
+    </div>
+
+    <div class="col my-auto" >
+      <p style="text-align: center" >Terapija</p>
+      <div class="circle-with-text" style=" padding-right: 10px;background: green; height: 120px;
+      width: 120px; font-size: 12px;">
+        {{pregled.terapija}}
+      </div>
+    </div>
+
+  </div>
+</div>

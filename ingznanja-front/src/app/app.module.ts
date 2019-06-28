@@ -13,6 +13,7 @@ import { PacientComponent } from './components/pacient/pacient.component';
 import { PacientDetailsComponent } from './components/pacient-details/pacient-details.component';
 import { PreventiveComponent } from './components/preventive/preventive.component';
 import { ZavrsiPregledComponent } from './components/zavrsi-pregled/zavrsi-pregled.component';
+import { GrafComponent } from './components/graf/graf.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { ZavrsiPregledComponent } from './components/zavrsi-pregled/zavrsi-pregl
     PacientComponent,
     PacientDetailsComponent,
     PreventiveComponent,
-    ZavrsiPregledComponent
+    ZavrsiPregledComponent,
+    GrafComponent
   ],
   imports: [
     BrowserModule,
