@@ -38,19 +38,25 @@ public class CsvConnector implements Connector {
 
         List<CBRModel> modeli = new ArrayList<>();
 
+        List<Pregled> obradjeniPregledi = new ArrayList<>();
+
         //popuni cbrmodel pregledima iz baze
         for(int i = 0 ; i < pregledi.size(); i++) {
 
             Pregled p = pregledi.get(i);
-            for(Simptom s : p.getSimptoms())
-            {
-                CBRModel cbrm= new CBRModel();
-                cbrm.setDijagnoza(p.getDijagnoza().getNaziv());
-                cbrm.setTerapija(p.getTerapija().getNaziv());
-                cbrm.setDijagnostika(p.getDijagnostika().getNaziv());
-                cbrm.setSimptom(s.getNaziv());
-                cbrm.setId(p.getId());
-                modeli.add(cbrm);
+
+            if(!obradjen(p,obradjeniPregledi)) {
+                for (Simptom s : p.getSimptoms()) {
+                    CBRModel cbrm = new CBRModel();
+                    cbrm.setDijagnoza(p.getDijagnoza().getNaziv());
+                    cbrm.setTerapija(p.getTerapija().getNaziv());
+                    cbrm.setDijagnostika(p.getDijagnostika().getNaziv());
+                    cbrm.setSimptom(s.getNaziv());
+                    cbrm.setId(p.getId());
+                    modeli.add(cbrm);
+
+                }
+                obradjeniPregledi.add(p);
             }
         }
 
@@ -89,6 +95,30 @@ public class CsvConnector implements Connector {
 
     @Override
     public void initFromXMLfile(URL arg0) throws InitializingException {
+    }
+
+
+    public boolean obradjen(Pregled p, List<Pregled> pregleds)
+    {
+        if(pregleds.size() == 0)
+            return false;
+
+        boolean indikator = false;
+        for(Pregled pregled: pregleds)
+        {
+            String dijagnostika = p.getDijagnostika().getNaziv();
+            String dijagnostikaP = pregled.getDijagnostika().getNaziv();
+            String dijagnoza = p.getDijagnoza().getNaziv();
+            String dijagnozaP = pregled.getDijagnoza().getNaziv();
+            String terapija = p.getTerapija().getNaziv();
+            String terapijaP = pregled.getTerapija().getNaziv();
+
+            if(dijagnostika.equals(dijagnostikaP) && dijagnoza.equals(dijagnozaP) && terapija.equals(terapijaP)) {
+                indikator = true;
+                break;
+            }
+        }
+        return indikator;
     }
 
 }
