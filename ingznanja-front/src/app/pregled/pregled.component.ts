@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { Pregled } from '../model/Pregled';
 import { CaseBaseInfo } from '../model/CaseBaseInfo';
+import { CaseBaseRet } from '../model/CaseBaseRet';
 @Component({
   selector: 'app-pregled',
   templateUrl: './pregled.component.html',
@@ -25,6 +26,8 @@ export class PregledComponent implements OnInit {
 
   selectDijagnostika: string = '';
   showDijagnostika: boolean = false;
+
+  caseBaseRets: Array<CaseBaseRet> = [];
 
   id: string;
   constructor(private router: Router, private pacientService: PacientService, private route: ActivatedRoute) {
@@ -57,12 +60,12 @@ export class PregledComponent implements OnInit {
       );
     }
     else {
-      let caseBaseInfoBody : CaseBaseInfo = new CaseBaseInfo();
+      let caseBaseInfoBody: CaseBaseInfo = new CaseBaseInfo();
       caseBaseInfoBody.idPregleda = this.idPregled;
       caseBaseInfoBody.simptomi = this.pregled.simptoms;
       this.pacientService.diganoseCase(caseBaseInfoBody).subscribe(
         data => {
-          console.log(data);
+          this.caseBaseRets = data;
         }
       );
     }
@@ -92,4 +95,23 @@ export class PregledComponent implements OnInit {
     this.router.navigate(['/pacients']);
   }
 
+  finshCase(id: number): void {
+    let caseRet: CaseBaseRet = this.caseBaseRets[id];
+    let pregled: Pregled = new Pregled();
+    pregled.id = this.idPregled;
+    pregled.dijagnostika = caseRet.dijagnostika;
+    pregled.dijagnoza = caseRet.dijagnoza;
+    pregled.terapija = caseRet.terapija;
+    this.pacientService.setDijagnostika(pregled).subscribe(
+      response => {
+        this.pacientService.setDijagnoza(pregled).subscribe(
+          response => {
+            this.pacientService.setTerapija(pregled).subscribe(
+              response => this.router.navigate(['/pacients'])
+            )
+          }
+        );
+      }
+    );
+  }
 }

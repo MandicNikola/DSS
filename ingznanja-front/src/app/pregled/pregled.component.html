@@ -44,7 +44,24 @@
     </div>
 
     <div *ngIf="selectMode === 'CASE'">
-      
+      <table class="table table-hover">
+          <thead>
+              <tr>
+                <th>#</th>
+                <th scope="col">Dijagnoza</th>
+                <th scope="col">Terapija</th>
+                <th scope="col">Dijagnostika</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let case of caseBaseRets; let i = index;">
+                <td>{{case.dijagnoza}}</td>
+                <td>{{case.terapija}}</td>
+                <td>{{case.dijagnostika}}</td>    
+                <td><button type="button" class="btn btn-info btn-sm" (click)="finishCase(i)">Odaberi</button></td>
+                </tr>
+            </tbody>
+      </table>
     </div>
 
     </form>
