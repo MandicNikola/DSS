@@ -49,6 +49,16 @@ public class PregledController {
         return new ResponseEntity<>(retVal, HttpStatus.OK);
     }
 
+    @RequestMapping(value ="/setSimptoms", method = RequestMethod.POST)
+    public ResponseEntity<?> setSimptoms(@RequestBody PregledDTO dto)
+    {
+        Pregled p = service.findPregledById(dto.getId());
+        service.saveSimptoms(dto.getSimptoms(),p);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+
+
     @RequestMapping(
             value = "/getAll/{id}",
             method = RequestMethod.GET

@@ -109,5 +109,9 @@ export class PacientService {
     return this.http.get(`${ROOT_URL}/pregled/get/${id}`);
   }
 
+  setSimptoms(body: Pregled) : Observable<any> {
+    return this.http.post(`${ROOT_URL}/pregled/setSimptoms`,body);
+  }
+
 
 }

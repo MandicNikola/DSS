@@ -102,12 +102,17 @@ export class PregledComponent implements OnInit {
     pregled.dijagnostika = caseRet.dijagnostika;
     pregled.dijagnoza = caseRet.dijagnoza;
     pregled.terapija = caseRet.terapija;
+    pregled.simptoms = this.pregled.simptoms;
     this.pacientService.setDijagnostika(pregled).subscribe(
       response => {
         this.pacientService.setDijagnoza(pregled).subscribe(
           response => {
             this.pacientService.setTerapija(pregled).subscribe(
-              response => this.router.navigate(['/pacients'])
+              response => {
+                this.pacientService.setSimptoms(pregled).subscribe(
+                  response => this.router.navigate(['/pacients'])
+                );
+              }
             )
           }
         );
